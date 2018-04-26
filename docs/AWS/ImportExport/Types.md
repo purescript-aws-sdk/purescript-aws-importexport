@@ -28,7 +28,7 @@ Encode APIVersion
 
 ``` purescript
 newtype Artifact
-  = Artifact { "Description" :: NullOrUndefined (Description), "URL" :: NullOrUndefined (URL) }
+  = Artifact { "Description" :: Maybe (Description), "URL" :: Maybe (URL) }
 ```
 
 A discrete item that contains the description and URL of an artifact (such as a PDF).
@@ -53,7 +53,7 @@ Constructs Artifact from required parameters
 #### `newArtifact'`
 
 ``` purescript
-newArtifact' :: ({ "Description" :: NullOrUndefined (Description), "URL" :: NullOrUndefined (URL) } -> { "Description" :: NullOrUndefined (Description), "URL" :: NullOrUndefined (URL) }) -> Artifact
+newArtifact' :: ({ "Description" :: Maybe (Description), "URL" :: Maybe (URL) } -> { "Description" :: Maybe (Description), "URL" :: Maybe (URL) }) -> Artifact
 ```
 
 Constructs Artifact's fields from required parameters
@@ -80,7 +80,7 @@ Encode ArtifactList
 
 ``` purescript
 newtype BucketPermissionException
-  = BucketPermissionException { message :: NullOrUndefined (ErrorMessage) }
+  = BucketPermissionException { message :: Maybe (ErrorMessage) }
 ```
 
 The account specified does not have the appropriate bucket permissions.
@@ -105,7 +105,7 @@ Constructs BucketPermissionException from required parameters
 #### `newBucketPermissionException'`
 
 ``` purescript
-newBucketPermissionException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> BucketPermissionException
+newBucketPermissionException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> BucketPermissionException
 ```
 
 Constructs BucketPermissionException's fields from required parameters
@@ -114,7 +114,7 @@ Constructs BucketPermissionException's fields from required parameters
 
 ``` purescript
 newtype CancelJobInput
-  = CancelJobInput { "JobId" :: JobId, "APIVersion" :: NullOrUndefined (APIVersion) }
+  = CancelJobInput { "JobId" :: JobId, "APIVersion" :: Maybe (APIVersion) }
 ```
 
 Input structure for the CancelJob operation.
@@ -139,7 +139,7 @@ Constructs CancelJobInput from required parameters
 #### `newCancelJobInput'`
 
 ``` purescript
-newCancelJobInput' :: JobId -> ({ "JobId" :: JobId, "APIVersion" :: NullOrUndefined (APIVersion) } -> { "JobId" :: JobId, "APIVersion" :: NullOrUndefined (APIVersion) }) -> CancelJobInput
+newCancelJobInput' :: JobId -> ({ "JobId" :: JobId, "APIVersion" :: Maybe (APIVersion) } -> { "JobId" :: JobId, "APIVersion" :: Maybe (APIVersion) }) -> CancelJobInput
 ```
 
 Constructs CancelJobInput's fields from required parameters
@@ -148,7 +148,7 @@ Constructs CancelJobInput's fields from required parameters
 
 ``` purescript
 newtype CancelJobOutput
-  = CancelJobOutput { "Success" :: NullOrUndefined (Success) }
+  = CancelJobOutput { "Success" :: Maybe (Success) }
 ```
 
 Output structure for the CancelJob operation.
@@ -173,7 +173,7 @@ Constructs CancelJobOutput from required parameters
 #### `newCancelJobOutput'`
 
 ``` purescript
-newCancelJobOutput' :: ({ "Success" :: NullOrUndefined (Success) } -> { "Success" :: NullOrUndefined (Success) }) -> CancelJobOutput
+newCancelJobOutput' :: ({ "Success" :: Maybe (Success) } -> { "Success" :: Maybe (Success) }) -> CancelJobOutput
 ```
 
 Constructs CancelJobOutput's fields from required parameters
@@ -182,7 +182,7 @@ Constructs CancelJobOutput's fields from required parameters
 
 ``` purescript
 newtype CanceledJobIdException
-  = CanceledJobIdException { message :: NullOrUndefined (ErrorMessage) }
+  = CanceledJobIdException { message :: Maybe (ErrorMessage) }
 ```
 
 The specified job ID has been canceled and is no longer valid.
@@ -207,7 +207,7 @@ Constructs CanceledJobIdException from required parameters
 #### `newCanceledJobIdException'`
 
 ``` purescript
-newCanceledJobIdException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> CanceledJobIdException
+newCanceledJobIdException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> CanceledJobIdException
 ```
 
 Constructs CanceledJobIdException's fields from required parameters
@@ -234,7 +234,7 @@ Encode Carrier
 
 ``` purescript
 newtype CreateJobInput
-  = CreateJobInput { "JobType" :: JobType, "Manifest" :: Manifest, "ManifestAddendum" :: NullOrUndefined (ManifestAddendum), "ValidateOnly" :: ValidateOnly, "APIVersion" :: NullOrUndefined (APIVersion) }
+  = CreateJobInput { "JobType" :: JobType, "Manifest" :: Manifest, "ManifestAddendum" :: Maybe (ManifestAddendum), "ValidateOnly" :: ValidateOnly, "APIVersion" :: Maybe (APIVersion) }
 ```
 
 Input structure for the CreateJob operation.
@@ -259,7 +259,7 @@ Constructs CreateJobInput from required parameters
 #### `newCreateJobInput'`
 
 ``` purescript
-newCreateJobInput' :: JobType -> Manifest -> ValidateOnly -> ({ "JobType" :: JobType, "Manifest" :: Manifest, "ManifestAddendum" :: NullOrUndefined (ManifestAddendum), "ValidateOnly" :: ValidateOnly, "APIVersion" :: NullOrUndefined (APIVersion) } -> { "JobType" :: JobType, "Manifest" :: Manifest, "ManifestAddendum" :: NullOrUndefined (ManifestAddendum), "ValidateOnly" :: ValidateOnly, "APIVersion" :: NullOrUndefined (APIVersion) }) -> CreateJobInput
+newCreateJobInput' :: JobType -> Manifest -> ValidateOnly -> ({ "JobType" :: JobType, "Manifest" :: Manifest, "ManifestAddendum" :: Maybe (ManifestAddendum), "ValidateOnly" :: ValidateOnly, "APIVersion" :: Maybe (APIVersion) } -> { "JobType" :: JobType, "Manifest" :: Manifest, "ManifestAddendum" :: Maybe (ManifestAddendum), "ValidateOnly" :: ValidateOnly, "APIVersion" :: Maybe (APIVersion) }) -> CreateJobInput
 ```
 
 Constructs CreateJobInput's fields from required parameters
@@ -268,7 +268,7 @@ Constructs CreateJobInput's fields from required parameters
 
 ``` purescript
 newtype CreateJobOutput
-  = CreateJobOutput { "JobId" :: NullOrUndefined (JobId), "JobType" :: NullOrUndefined (JobType), "Signature" :: NullOrUndefined (Signature), "SignatureFileContents" :: NullOrUndefined (SignatureFileContents), "WarningMessage" :: NullOrUndefined (WarningMessage), "ArtifactList" :: NullOrUndefined (ArtifactList) }
+  = CreateJobOutput { "JobId" :: Maybe (JobId), "JobType" :: Maybe (JobType), "Signature" :: Maybe (Signature), "SignatureFileContents" :: Maybe (SignatureFileContents), "WarningMessage" :: Maybe (WarningMessage), "ArtifactList" :: Maybe (ArtifactList) }
 ```
 
 Output structure for the CreateJob operation.
@@ -293,7 +293,7 @@ Constructs CreateJobOutput from required parameters
 #### `newCreateJobOutput'`
 
 ``` purescript
-newCreateJobOutput' :: ({ "JobId" :: NullOrUndefined (JobId), "JobType" :: NullOrUndefined (JobType), "Signature" :: NullOrUndefined (Signature), "SignatureFileContents" :: NullOrUndefined (SignatureFileContents), "WarningMessage" :: NullOrUndefined (WarningMessage), "ArtifactList" :: NullOrUndefined (ArtifactList) } -> { "JobId" :: NullOrUndefined (JobId), "JobType" :: NullOrUndefined (JobType), "Signature" :: NullOrUndefined (Signature), "SignatureFileContents" :: NullOrUndefined (SignatureFileContents), "WarningMessage" :: NullOrUndefined (WarningMessage), "ArtifactList" :: NullOrUndefined (ArtifactList) }) -> CreateJobOutput
+newCreateJobOutput' :: ({ "JobId" :: Maybe (JobId), "JobType" :: Maybe (JobType), "Signature" :: Maybe (Signature), "SignatureFileContents" :: Maybe (SignatureFileContents), "WarningMessage" :: Maybe (WarningMessage), "ArtifactList" :: Maybe (ArtifactList) } -> { "JobId" :: Maybe (JobId), "JobType" :: Maybe (JobType), "Signature" :: Maybe (Signature), "SignatureFileContents" :: Maybe (SignatureFileContents), "WarningMessage" :: Maybe (WarningMessage), "ArtifactList" :: Maybe (ArtifactList) }) -> CreateJobOutput
 ```
 
 Constructs CreateJobOutput's fields from required parameters
@@ -302,7 +302,7 @@ Constructs CreateJobOutput's fields from required parameters
 
 ``` purescript
 newtype CreateJobQuotaExceededException
-  = CreateJobQuotaExceededException { message :: NullOrUndefined (ErrorMessage) }
+  = CreateJobQuotaExceededException { message :: Maybe (ErrorMessage) }
 ```
 
 Each account can create only a certain number of jobs per day. If you need to create more than this, please contact awsimportexport@amazon.com to explain your particular use case.
@@ -327,7 +327,7 @@ Constructs CreateJobQuotaExceededException from required parameters
 #### `newCreateJobQuotaExceededException'`
 
 ``` purescript
-newCreateJobQuotaExceededException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> CreateJobQuotaExceededException
+newCreateJobQuotaExceededException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> CreateJobQuotaExceededException
 ```
 
 Constructs CreateJobQuotaExceededException's fields from required parameters
@@ -426,7 +426,7 @@ Encode ErrorMessage
 
 ``` purescript
 newtype ExpiredJobIdException
-  = ExpiredJobIdException { message :: NullOrUndefined (ErrorMessage) }
+  = ExpiredJobIdException { message :: Maybe (ErrorMessage) }
 ```
 
 Indicates that the specified job has expired out of the system.
@@ -451,7 +451,7 @@ Constructs ExpiredJobIdException from required parameters
 #### `newExpiredJobIdException'`
 
 ``` purescript
-newExpiredJobIdException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> ExpiredJobIdException
+newExpiredJobIdException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> ExpiredJobIdException
 ```
 
 Constructs ExpiredJobIdException's fields from required parameters
@@ -476,7 +476,7 @@ Encode GenericString
 
 ``` purescript
 newtype GetShippingLabelInput
-  = GetShippingLabelInput { jobIds :: JobIdList, name :: NullOrUndefined (Name'), company :: NullOrUndefined (Company'), phoneNumber :: NullOrUndefined (PhoneNumber'), country :: NullOrUndefined (Country'), stateOrProvince :: NullOrUndefined (StateOrProvince'), city :: NullOrUndefined (City'), postalCode :: NullOrUndefined (PostalCode'), street1 :: NullOrUndefined (Street1'), street2 :: NullOrUndefined (Street2'), street3 :: NullOrUndefined (Street3'), "APIVersion" :: NullOrUndefined (APIVersion) }
+  = GetShippingLabelInput { jobIds :: JobIdList, name :: Maybe (Name'), company :: Maybe (Company'), phoneNumber :: Maybe (PhoneNumber'), country :: Maybe (Country'), stateOrProvince :: Maybe (StateOrProvince'), city :: Maybe (City'), postalCode :: Maybe (PostalCode'), street1 :: Maybe (Street1'), street2 :: Maybe (Street2'), street3 :: Maybe (Street3'), "APIVersion" :: Maybe (APIVersion) }
 ```
 
 ##### Instances
@@ -499,7 +499,7 @@ Constructs GetShippingLabelInput from required parameters
 #### `newGetShippingLabelInput'`
 
 ``` purescript
-newGetShippingLabelInput' :: JobIdList -> ({ jobIds :: JobIdList, name :: NullOrUndefined (Name'), company :: NullOrUndefined (Company'), phoneNumber :: NullOrUndefined (PhoneNumber'), country :: NullOrUndefined (Country'), stateOrProvince :: NullOrUndefined (StateOrProvince'), city :: NullOrUndefined (City'), postalCode :: NullOrUndefined (PostalCode'), street1 :: NullOrUndefined (Street1'), street2 :: NullOrUndefined (Street2'), street3 :: NullOrUndefined (Street3'), "APIVersion" :: NullOrUndefined (APIVersion) } -> { jobIds :: JobIdList, name :: NullOrUndefined (Name'), company :: NullOrUndefined (Company'), phoneNumber :: NullOrUndefined (PhoneNumber'), country :: NullOrUndefined (Country'), stateOrProvince :: NullOrUndefined (StateOrProvince'), city :: NullOrUndefined (City'), postalCode :: NullOrUndefined (PostalCode'), street1 :: NullOrUndefined (Street1'), street2 :: NullOrUndefined (Street2'), street3 :: NullOrUndefined (Street3'), "APIVersion" :: NullOrUndefined (APIVersion) }) -> GetShippingLabelInput
+newGetShippingLabelInput' :: JobIdList -> ({ jobIds :: JobIdList, name :: Maybe (Name'), company :: Maybe (Company'), phoneNumber :: Maybe (PhoneNumber'), country :: Maybe (Country'), stateOrProvince :: Maybe (StateOrProvince'), city :: Maybe (City'), postalCode :: Maybe (PostalCode'), street1 :: Maybe (Street1'), street2 :: Maybe (Street2'), street3 :: Maybe (Street3'), "APIVersion" :: Maybe (APIVersion) } -> { jobIds :: JobIdList, name :: Maybe (Name'), company :: Maybe (Company'), phoneNumber :: Maybe (PhoneNumber'), country :: Maybe (Country'), stateOrProvince :: Maybe (StateOrProvince'), city :: Maybe (City'), postalCode :: Maybe (PostalCode'), street1 :: Maybe (Street1'), street2 :: Maybe (Street2'), street3 :: Maybe (Street3'), "APIVersion" :: Maybe (APIVersion) }) -> GetShippingLabelInput
 ```
 
 Constructs GetShippingLabelInput's fields from required parameters
@@ -508,7 +508,7 @@ Constructs GetShippingLabelInput's fields from required parameters
 
 ``` purescript
 newtype GetShippingLabelOutput
-  = GetShippingLabelOutput { "ShippingLabelURL" :: NullOrUndefined (GenericString), "Warning" :: NullOrUndefined (GenericString) }
+  = GetShippingLabelOutput { "ShippingLabelURL" :: Maybe (GenericString), "Warning" :: Maybe (GenericString) }
 ```
 
 ##### Instances
@@ -531,7 +531,7 @@ Constructs GetShippingLabelOutput from required parameters
 #### `newGetShippingLabelOutput'`
 
 ``` purescript
-newGetShippingLabelOutput' :: ({ "ShippingLabelURL" :: NullOrUndefined (GenericString), "Warning" :: NullOrUndefined (GenericString) } -> { "ShippingLabelURL" :: NullOrUndefined (GenericString), "Warning" :: NullOrUndefined (GenericString) }) -> GetShippingLabelOutput
+newGetShippingLabelOutput' :: ({ "ShippingLabelURL" :: Maybe (GenericString), "Warning" :: Maybe (GenericString) } -> { "ShippingLabelURL" :: Maybe (GenericString), "Warning" :: Maybe (GenericString) }) -> GetShippingLabelOutput
 ```
 
 Constructs GetShippingLabelOutput's fields from required parameters
@@ -540,7 +540,7 @@ Constructs GetShippingLabelOutput's fields from required parameters
 
 ``` purescript
 newtype GetStatusInput
-  = GetStatusInput { "JobId" :: JobId, "APIVersion" :: NullOrUndefined (APIVersion) }
+  = GetStatusInput { "JobId" :: JobId, "APIVersion" :: Maybe (APIVersion) }
 ```
 
 Input structure for the GetStatus operation.
@@ -565,7 +565,7 @@ Constructs GetStatusInput from required parameters
 #### `newGetStatusInput'`
 
 ``` purescript
-newGetStatusInput' :: JobId -> ({ "JobId" :: JobId, "APIVersion" :: NullOrUndefined (APIVersion) } -> { "JobId" :: JobId, "APIVersion" :: NullOrUndefined (APIVersion) }) -> GetStatusInput
+newGetStatusInput' :: JobId -> ({ "JobId" :: JobId, "APIVersion" :: Maybe (APIVersion) } -> { "JobId" :: JobId, "APIVersion" :: Maybe (APIVersion) }) -> GetStatusInput
 ```
 
 Constructs GetStatusInput's fields from required parameters
@@ -574,7 +574,7 @@ Constructs GetStatusInput's fields from required parameters
 
 ``` purescript
 newtype GetStatusOutput
-  = GetStatusOutput { "JobId" :: NullOrUndefined (JobId), "JobType" :: NullOrUndefined (JobType), "LocationCode" :: NullOrUndefined (LocationCode), "LocationMessage" :: NullOrUndefined (LocationMessage), "ProgressCode" :: NullOrUndefined (ProgressCode), "ProgressMessage" :: NullOrUndefined (ProgressMessage), "Carrier" :: NullOrUndefined (Carrier), "TrackingNumber" :: NullOrUndefined (TrackingNumber), "LogBucket" :: NullOrUndefined (LogBucket), "LogKey" :: NullOrUndefined (LogKey), "ErrorCount" :: NullOrUndefined (ErrorCount), "Signature" :: NullOrUndefined (Signature), "SignatureFileContents" :: NullOrUndefined (Signature), "CurrentManifest" :: NullOrUndefined (CurrentManifest), "CreationDate" :: NullOrUndefined (CreationDate), "ArtifactList" :: NullOrUndefined (ArtifactList) }
+  = GetStatusOutput { "JobId" :: Maybe (JobId), "JobType" :: Maybe (JobType), "LocationCode" :: Maybe (LocationCode), "LocationMessage" :: Maybe (LocationMessage), "ProgressCode" :: Maybe (ProgressCode), "ProgressMessage" :: Maybe (ProgressMessage), "Carrier" :: Maybe (Carrier), "TrackingNumber" :: Maybe (TrackingNumber), "LogBucket" :: Maybe (LogBucket), "LogKey" :: Maybe (LogKey), "ErrorCount" :: Maybe (ErrorCount), "Signature" :: Maybe (Signature), "SignatureFileContents" :: Maybe (Signature), "CurrentManifest" :: Maybe (CurrentManifest), "CreationDate" :: Maybe (CreationDate), "ArtifactList" :: Maybe (ArtifactList) }
 ```
 
 Output structure for the GetStatus operation.
@@ -599,7 +599,7 @@ Constructs GetStatusOutput from required parameters
 #### `newGetStatusOutput'`
 
 ``` purescript
-newGetStatusOutput' :: ({ "JobId" :: NullOrUndefined (JobId), "JobType" :: NullOrUndefined (JobType), "LocationCode" :: NullOrUndefined (LocationCode), "LocationMessage" :: NullOrUndefined (LocationMessage), "ProgressCode" :: NullOrUndefined (ProgressCode), "ProgressMessage" :: NullOrUndefined (ProgressMessage), "Carrier" :: NullOrUndefined (Carrier), "TrackingNumber" :: NullOrUndefined (TrackingNumber), "LogBucket" :: NullOrUndefined (LogBucket), "LogKey" :: NullOrUndefined (LogKey), "ErrorCount" :: NullOrUndefined (ErrorCount), "Signature" :: NullOrUndefined (Signature), "SignatureFileContents" :: NullOrUndefined (Signature), "CurrentManifest" :: NullOrUndefined (CurrentManifest), "CreationDate" :: NullOrUndefined (CreationDate), "ArtifactList" :: NullOrUndefined (ArtifactList) } -> { "JobId" :: NullOrUndefined (JobId), "JobType" :: NullOrUndefined (JobType), "LocationCode" :: NullOrUndefined (LocationCode), "LocationMessage" :: NullOrUndefined (LocationMessage), "ProgressCode" :: NullOrUndefined (ProgressCode), "ProgressMessage" :: NullOrUndefined (ProgressMessage), "Carrier" :: NullOrUndefined (Carrier), "TrackingNumber" :: NullOrUndefined (TrackingNumber), "LogBucket" :: NullOrUndefined (LogBucket), "LogKey" :: NullOrUndefined (LogKey), "ErrorCount" :: NullOrUndefined (ErrorCount), "Signature" :: NullOrUndefined (Signature), "SignatureFileContents" :: NullOrUndefined (Signature), "CurrentManifest" :: NullOrUndefined (CurrentManifest), "CreationDate" :: NullOrUndefined (CreationDate), "ArtifactList" :: NullOrUndefined (ArtifactList) }) -> GetStatusOutput
+newGetStatusOutput' :: ({ "JobId" :: Maybe (JobId), "JobType" :: Maybe (JobType), "LocationCode" :: Maybe (LocationCode), "LocationMessage" :: Maybe (LocationMessage), "ProgressCode" :: Maybe (ProgressCode), "ProgressMessage" :: Maybe (ProgressMessage), "Carrier" :: Maybe (Carrier), "TrackingNumber" :: Maybe (TrackingNumber), "LogBucket" :: Maybe (LogBucket), "LogKey" :: Maybe (LogKey), "ErrorCount" :: Maybe (ErrorCount), "Signature" :: Maybe (Signature), "SignatureFileContents" :: Maybe (Signature), "CurrentManifest" :: Maybe (CurrentManifest), "CreationDate" :: Maybe (CreationDate), "ArtifactList" :: Maybe (ArtifactList) } -> { "JobId" :: Maybe (JobId), "JobType" :: Maybe (JobType), "LocationCode" :: Maybe (LocationCode), "LocationMessage" :: Maybe (LocationMessage), "ProgressCode" :: Maybe (ProgressCode), "ProgressMessage" :: Maybe (ProgressMessage), "Carrier" :: Maybe (Carrier), "TrackingNumber" :: Maybe (TrackingNumber), "LogBucket" :: Maybe (LogBucket), "LogKey" :: Maybe (LogKey), "ErrorCount" :: Maybe (ErrorCount), "Signature" :: Maybe (Signature), "SignatureFileContents" :: Maybe (Signature), "CurrentManifest" :: Maybe (CurrentManifest), "CreationDate" :: Maybe (CreationDate), "ArtifactList" :: Maybe (ArtifactList) }) -> GetStatusOutput
 ```
 
 Constructs GetStatusOutput's fields from required parameters
@@ -608,7 +608,7 @@ Constructs GetStatusOutput's fields from required parameters
 
 ``` purescript
 newtype InvalidAccessKeyIdException
-  = InvalidAccessKeyIdException { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidAccessKeyIdException { message :: Maybe (ErrorMessage) }
 ```
 
 The AWS Access Key ID specified in the request did not match the manifest's accessKeyId value. The manifest and the request authentication must use the same AWS Access Key ID.
@@ -633,7 +633,7 @@ Constructs InvalidAccessKeyIdException from required parameters
 #### `newInvalidAccessKeyIdException'`
 
 ``` purescript
-newInvalidAccessKeyIdException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidAccessKeyIdException
+newInvalidAccessKeyIdException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidAccessKeyIdException
 ```
 
 Constructs InvalidAccessKeyIdException's fields from required parameters
@@ -642,7 +642,7 @@ Constructs InvalidAccessKeyIdException's fields from required parameters
 
 ``` purescript
 newtype InvalidAddressException
-  = InvalidAddressException { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidAddressException { message :: Maybe (ErrorMessage) }
 ```
 
 The address specified in the manifest is invalid.
@@ -667,7 +667,7 @@ Constructs InvalidAddressException from required parameters
 #### `newInvalidAddressException'`
 
 ``` purescript
-newInvalidAddressException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidAddressException
+newInvalidAddressException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidAddressException
 ```
 
 Constructs InvalidAddressException's fields from required parameters
@@ -676,7 +676,7 @@ Constructs InvalidAddressException's fields from required parameters
 
 ``` purescript
 newtype InvalidCustomsException
-  = InvalidCustomsException { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidCustomsException { message :: Maybe (ErrorMessage) }
 ```
 
 One or more customs parameters was invalid. Please correct and resubmit.
@@ -701,7 +701,7 @@ Constructs InvalidCustomsException from required parameters
 #### `newInvalidCustomsException'`
 
 ``` purescript
-newInvalidCustomsException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidCustomsException
+newInvalidCustomsException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidCustomsException
 ```
 
 Constructs InvalidCustomsException's fields from required parameters
@@ -710,7 +710,7 @@ Constructs InvalidCustomsException's fields from required parameters
 
 ``` purescript
 newtype InvalidFileSystemException
-  = InvalidFileSystemException { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidFileSystemException { message :: Maybe (ErrorMessage) }
 ```
 
 File system specified in export manifest is invalid.
@@ -735,7 +735,7 @@ Constructs InvalidFileSystemException from required parameters
 #### `newInvalidFileSystemException'`
 
 ``` purescript
-newInvalidFileSystemException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidFileSystemException
+newInvalidFileSystemException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidFileSystemException
 ```
 
 Constructs InvalidFileSystemException's fields from required parameters
@@ -744,7 +744,7 @@ Constructs InvalidFileSystemException's fields from required parameters
 
 ``` purescript
 newtype InvalidJobIdException
-  = InvalidJobIdException { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidJobIdException { message :: Maybe (ErrorMessage) }
 ```
 
 The JOBID was missing, not found, or not associated with the AWS account.
@@ -769,7 +769,7 @@ Constructs InvalidJobIdException from required parameters
 #### `newInvalidJobIdException'`
 
 ``` purescript
-newInvalidJobIdException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidJobIdException
+newInvalidJobIdException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidJobIdException
 ```
 
 Constructs InvalidJobIdException's fields from required parameters
@@ -778,7 +778,7 @@ Constructs InvalidJobIdException's fields from required parameters
 
 ``` purescript
 newtype InvalidManifestFieldException
-  = InvalidManifestFieldException { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidManifestFieldException { message :: Maybe (ErrorMessage) }
 ```
 
 One or more manifest fields was invalid. Please correct and resubmit.
@@ -803,7 +803,7 @@ Constructs InvalidManifestFieldException from required parameters
 #### `newInvalidManifestFieldException'`
 
 ``` purescript
-newInvalidManifestFieldException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidManifestFieldException
+newInvalidManifestFieldException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidManifestFieldException
 ```
 
 Constructs InvalidManifestFieldException's fields from required parameters
@@ -812,7 +812,7 @@ Constructs InvalidManifestFieldException's fields from required parameters
 
 ``` purescript
 newtype InvalidParameterException
-  = InvalidParameterException { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidParameterException { message :: Maybe (ErrorMessage) }
 ```
 
 One or more parameters had an invalid value.
@@ -837,7 +837,7 @@ Constructs InvalidParameterException from required parameters
 #### `newInvalidParameterException'`
 
 ``` purescript
-newInvalidParameterException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidParameterException
+newInvalidParameterException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidParameterException
 ```
 
 Constructs InvalidParameterException's fields from required parameters
@@ -846,7 +846,7 @@ Constructs InvalidParameterException's fields from required parameters
 
 ``` purescript
 newtype InvalidVersionException
-  = InvalidVersionException { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidVersionException { message :: Maybe (ErrorMessage) }
 ```
 
 The client tool version is invalid.
@@ -871,7 +871,7 @@ Constructs InvalidVersionException from required parameters
 #### `newInvalidVersionException'`
 
 ``` purescript
-newInvalidVersionException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidVersionException
+newInvalidVersionException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidVersionException
 ```
 
 Constructs InvalidVersionException's fields from required parameters
@@ -916,7 +916,7 @@ Encode IsTruncated
 
 ``` purescript
 newtype Job
-  = Job { "JobId" :: NullOrUndefined (JobId), "CreationDate" :: NullOrUndefined (CreationDate), "IsCanceled" :: NullOrUndefined (IsCanceled), "JobType" :: NullOrUndefined (JobType) }
+  = Job { "JobId" :: Maybe (JobId), "CreationDate" :: Maybe (CreationDate), "IsCanceled" :: Maybe (IsCanceled), "JobType" :: Maybe (JobType) }
 ```
 
 Representation of a job returned by the ListJobs operation.
@@ -941,7 +941,7 @@ Constructs Job from required parameters
 #### `newJob'`
 
 ``` purescript
-newJob' :: ({ "JobId" :: NullOrUndefined (JobId), "CreationDate" :: NullOrUndefined (CreationDate), "IsCanceled" :: NullOrUndefined (IsCanceled), "JobType" :: NullOrUndefined (JobType) } -> { "JobId" :: NullOrUndefined (JobId), "CreationDate" :: NullOrUndefined (CreationDate), "IsCanceled" :: NullOrUndefined (IsCanceled), "JobType" :: NullOrUndefined (JobType) }) -> Job
+newJob' :: ({ "JobId" :: Maybe (JobId), "CreationDate" :: Maybe (CreationDate), "IsCanceled" :: Maybe (IsCanceled), "JobType" :: Maybe (JobType) } -> { "JobId" :: Maybe (JobId), "CreationDate" :: Maybe (CreationDate), "IsCanceled" :: Maybe (IsCanceled), "JobType" :: Maybe (JobType) }) -> Job
 ```
 
 Constructs Job's fields from required parameters
@@ -1020,7 +1020,7 @@ Encode JobsList
 
 ``` purescript
 newtype ListJobsInput
-  = ListJobsInput { "MaxJobs" :: NullOrUndefined (MaxJobs), "Marker" :: NullOrUndefined (Marker), "APIVersion" :: NullOrUndefined (APIVersion) }
+  = ListJobsInput { "MaxJobs" :: Maybe (MaxJobs), "Marker" :: Maybe (Marker), "APIVersion" :: Maybe (APIVersion) }
 ```
 
 Input structure for the ListJobs operation.
@@ -1045,7 +1045,7 @@ Constructs ListJobsInput from required parameters
 #### `newListJobsInput'`
 
 ``` purescript
-newListJobsInput' :: ({ "MaxJobs" :: NullOrUndefined (MaxJobs), "Marker" :: NullOrUndefined (Marker), "APIVersion" :: NullOrUndefined (APIVersion) } -> { "MaxJobs" :: NullOrUndefined (MaxJobs), "Marker" :: NullOrUndefined (Marker), "APIVersion" :: NullOrUndefined (APIVersion) }) -> ListJobsInput
+newListJobsInput' :: ({ "MaxJobs" :: Maybe (MaxJobs), "Marker" :: Maybe (Marker), "APIVersion" :: Maybe (APIVersion) } -> { "MaxJobs" :: Maybe (MaxJobs), "Marker" :: Maybe (Marker), "APIVersion" :: Maybe (APIVersion) }) -> ListJobsInput
 ```
 
 Constructs ListJobsInput's fields from required parameters
@@ -1054,7 +1054,7 @@ Constructs ListJobsInput's fields from required parameters
 
 ``` purescript
 newtype ListJobsOutput
-  = ListJobsOutput { "Jobs" :: NullOrUndefined (JobsList), "IsTruncated" :: NullOrUndefined (IsTruncated) }
+  = ListJobsOutput { "Jobs" :: Maybe (JobsList), "IsTruncated" :: Maybe (IsTruncated) }
 ```
 
 Output structure for the ListJobs operation.
@@ -1079,7 +1079,7 @@ Constructs ListJobsOutput from required parameters
 #### `newListJobsOutput'`
 
 ``` purescript
-newListJobsOutput' :: ({ "Jobs" :: NullOrUndefined (JobsList), "IsTruncated" :: NullOrUndefined (IsTruncated) } -> { "Jobs" :: NullOrUndefined (JobsList), "IsTruncated" :: NullOrUndefined (IsTruncated) }) -> ListJobsOutput
+newListJobsOutput' :: ({ "Jobs" :: Maybe (JobsList), "IsTruncated" :: Maybe (IsTruncated) } -> { "Jobs" :: Maybe (JobsList), "IsTruncated" :: Maybe (IsTruncated) }) -> ListJobsOutput
 ```
 
 Constructs ListJobsOutput's fields from required parameters
@@ -1160,7 +1160,7 @@ Encode LogKey
 
 ``` purescript
 newtype MalformedManifestException
-  = MalformedManifestException { message :: NullOrUndefined (ErrorMessage) }
+  = MalformedManifestException { message :: Maybe (ErrorMessage) }
 ```
 
 Your manifest is not well-formed.
@@ -1185,7 +1185,7 @@ Constructs MalformedManifestException from required parameters
 #### `newMalformedManifestException'`
 
 ``` purescript
-newMalformedManifestException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> MalformedManifestException
+newMalformedManifestException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> MalformedManifestException
 ```
 
 Constructs MalformedManifestException's fields from required parameters
@@ -1266,7 +1266,7 @@ Encode MaxJobs
 
 ``` purescript
 newtype MissingCustomsException
-  = MissingCustomsException { message :: NullOrUndefined (ErrorMessage) }
+  = MissingCustomsException { message :: Maybe (ErrorMessage) }
 ```
 
 One or more required customs parameters was missing from the manifest.
@@ -1291,7 +1291,7 @@ Constructs MissingCustomsException from required parameters
 #### `newMissingCustomsException'`
 
 ``` purescript
-newMissingCustomsException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> MissingCustomsException
+newMissingCustomsException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> MissingCustomsException
 ```
 
 Constructs MissingCustomsException's fields from required parameters
@@ -1300,7 +1300,7 @@ Constructs MissingCustomsException's fields from required parameters
 
 ``` purescript
 newtype MissingManifestFieldException
-  = MissingManifestFieldException { message :: NullOrUndefined (ErrorMessage) }
+  = MissingManifestFieldException { message :: Maybe (ErrorMessage) }
 ```
 
 One or more required fields were missing from the manifest file. Please correct and resubmit.
@@ -1325,7 +1325,7 @@ Constructs MissingManifestFieldException from required parameters
 #### `newMissingManifestFieldException'`
 
 ``` purescript
-newMissingManifestFieldException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> MissingManifestFieldException
+newMissingManifestFieldException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> MissingManifestFieldException
 ```
 
 Constructs MissingManifestFieldException's fields from required parameters
@@ -1334,7 +1334,7 @@ Constructs MissingManifestFieldException's fields from required parameters
 
 ``` purescript
 newtype MissingParameterException
-  = MissingParameterException { message :: NullOrUndefined (ErrorMessage) }
+  = MissingParameterException { message :: Maybe (ErrorMessage) }
 ```
 
 One or more required parameters was missing from the request.
@@ -1359,7 +1359,7 @@ Constructs MissingParameterException from required parameters
 #### `newMissingParameterException'`
 
 ``` purescript
-newMissingParameterException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> MissingParameterException
+newMissingParameterException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> MissingParameterException
 ```
 
 Constructs MissingParameterException's fields from required parameters
@@ -1368,7 +1368,7 @@ Constructs MissingParameterException's fields from required parameters
 
 ``` purescript
 newtype MultipleRegionsException
-  = MultipleRegionsException { message :: NullOrUndefined (ErrorMessage) }
+  = MultipleRegionsException { message :: Maybe (ErrorMessage) }
 ```
 
 Your manifest file contained buckets from multiple regions. A job is restricted to buckets from one region. Please correct and resubmit.
@@ -1393,7 +1393,7 @@ Constructs MultipleRegionsException from required parameters
 #### `newMultipleRegionsException'`
 
 ``` purescript
-newMultipleRegionsException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> MultipleRegionsException
+newMultipleRegionsException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> MultipleRegionsException
 ```
 
 Constructs MultipleRegionsException's fields from required parameters
@@ -1402,7 +1402,7 @@ Constructs MultipleRegionsException's fields from required parameters
 
 ``` purescript
 newtype NoSuchBucketException
-  = NoSuchBucketException { message :: NullOrUndefined (ErrorMessage) }
+  = NoSuchBucketException { message :: Maybe (ErrorMessage) }
 ```
 
 The specified bucket does not exist. Create the specified bucket or change the manifest's bucket, exportBucket, or logBucket field to a bucket that the account, as specified by the manifest's Access Key ID, has write permissions to.
@@ -1427,7 +1427,7 @@ Constructs NoSuchBucketException from required parameters
 #### `newNoSuchBucketException'`
 
 ``` purescript
-newNoSuchBucketException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> NoSuchBucketException
+newNoSuchBucketException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> NoSuchBucketException
 ```
 
 Constructs NoSuchBucketException's fields from required parameters
@@ -1562,7 +1562,7 @@ Encode URL
 
 ``` purescript
 newtype UnableToCancelJobIdException
-  = UnableToCancelJobIdException { message :: NullOrUndefined (ErrorMessage) }
+  = UnableToCancelJobIdException { message :: Maybe (ErrorMessage) }
 ```
 
 AWS Import/Export cannot cancel the job
@@ -1587,7 +1587,7 @@ Constructs UnableToCancelJobIdException from required parameters
 #### `newUnableToCancelJobIdException'`
 
 ``` purescript
-newUnableToCancelJobIdException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> UnableToCancelJobIdException
+newUnableToCancelJobIdException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> UnableToCancelJobIdException
 ```
 
 Constructs UnableToCancelJobIdException's fields from required parameters
@@ -1596,7 +1596,7 @@ Constructs UnableToCancelJobIdException's fields from required parameters
 
 ``` purescript
 newtype UnableToUpdateJobIdException
-  = UnableToUpdateJobIdException { message :: NullOrUndefined (ErrorMessage) }
+  = UnableToUpdateJobIdException { message :: Maybe (ErrorMessage) }
 ```
 
 AWS Import/Export cannot update the job
@@ -1621,7 +1621,7 @@ Constructs UnableToUpdateJobIdException from required parameters
 #### `newUnableToUpdateJobIdException'`
 
 ``` purescript
-newUnableToUpdateJobIdException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> UnableToUpdateJobIdException
+newUnableToUpdateJobIdException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> UnableToUpdateJobIdException
 ```
 
 Constructs UnableToUpdateJobIdException's fields from required parameters
@@ -1630,7 +1630,7 @@ Constructs UnableToUpdateJobIdException's fields from required parameters
 
 ``` purescript
 newtype UpdateJobInput
-  = UpdateJobInput { "JobId" :: JobId, "Manifest" :: Manifest, "JobType" :: JobType, "ValidateOnly" :: ValidateOnly, "APIVersion" :: NullOrUndefined (APIVersion) }
+  = UpdateJobInput { "JobId" :: JobId, "Manifest" :: Manifest, "JobType" :: JobType, "ValidateOnly" :: ValidateOnly, "APIVersion" :: Maybe (APIVersion) }
 ```
 
 Input structure for the UpateJob operation.
@@ -1655,7 +1655,7 @@ Constructs UpdateJobInput from required parameters
 #### `newUpdateJobInput'`
 
 ``` purescript
-newUpdateJobInput' :: JobId -> JobType -> Manifest -> ValidateOnly -> ({ "JobId" :: JobId, "Manifest" :: Manifest, "JobType" :: JobType, "ValidateOnly" :: ValidateOnly, "APIVersion" :: NullOrUndefined (APIVersion) } -> { "JobId" :: JobId, "Manifest" :: Manifest, "JobType" :: JobType, "ValidateOnly" :: ValidateOnly, "APIVersion" :: NullOrUndefined (APIVersion) }) -> UpdateJobInput
+newUpdateJobInput' :: JobId -> JobType -> Manifest -> ValidateOnly -> ({ "JobId" :: JobId, "Manifest" :: Manifest, "JobType" :: JobType, "ValidateOnly" :: ValidateOnly, "APIVersion" :: Maybe (APIVersion) } -> { "JobId" :: JobId, "Manifest" :: Manifest, "JobType" :: JobType, "ValidateOnly" :: ValidateOnly, "APIVersion" :: Maybe (APIVersion) }) -> UpdateJobInput
 ```
 
 Constructs UpdateJobInput's fields from required parameters
@@ -1664,7 +1664,7 @@ Constructs UpdateJobInput's fields from required parameters
 
 ``` purescript
 newtype UpdateJobOutput
-  = UpdateJobOutput { "Success" :: NullOrUndefined (Success), "WarningMessage" :: NullOrUndefined (WarningMessage), "ArtifactList" :: NullOrUndefined (ArtifactList) }
+  = UpdateJobOutput { "Success" :: Maybe (Success), "WarningMessage" :: Maybe (WarningMessage), "ArtifactList" :: Maybe (ArtifactList) }
 ```
 
 Output structure for the UpateJob operation.
@@ -1689,7 +1689,7 @@ Constructs UpdateJobOutput from required parameters
 #### `newUpdateJobOutput'`
 
 ``` purescript
-newUpdateJobOutput' :: ({ "Success" :: NullOrUndefined (Success), "WarningMessage" :: NullOrUndefined (WarningMessage), "ArtifactList" :: NullOrUndefined (ArtifactList) } -> { "Success" :: NullOrUndefined (Success), "WarningMessage" :: NullOrUndefined (WarningMessage), "ArtifactList" :: NullOrUndefined (ArtifactList) }) -> UpdateJobOutput
+newUpdateJobOutput' :: ({ "Success" :: Maybe (Success), "WarningMessage" :: Maybe (WarningMessage), "ArtifactList" :: Maybe (ArtifactList) } -> { "Success" :: Maybe (Success), "WarningMessage" :: Maybe (WarningMessage), "ArtifactList" :: Maybe (ArtifactList) }) -> UpdateJobOutput
 ```
 
 Constructs UpdateJobOutput's fields from required parameters

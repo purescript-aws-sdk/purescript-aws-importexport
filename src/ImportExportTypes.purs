@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -30,8 +29,8 @@ instance encodeAPIVersion :: Encode APIVersion where encode = genericEncode opti
 
 -- | A discrete item that contains the description and URL of an artifact (such as a PDF).
 newtype Artifact = Artifact 
-  { "Description" :: NullOrUndefined (Description)
-  , "URL" :: NullOrUndefined (URL)
+  { "Description" :: Maybe (Description)
+  , "URL" :: Maybe (URL)
   }
 derive instance newtypeArtifact :: Newtype Artifact _
 derive instance repGenericArtifact :: Generic Artifact _
@@ -41,12 +40,12 @@ instance encodeArtifact :: Encode Artifact where encode = genericEncode options
 
 -- | Constructs Artifact from required parameters
 newArtifact :: Artifact
-newArtifact  = Artifact { "Description": (NullOrUndefined Nothing), "URL": (NullOrUndefined Nothing) }
+newArtifact  = Artifact { "Description": Nothing, "URL": Nothing }
 
 -- | Constructs Artifact's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newArtifact' :: ( { "Description" :: NullOrUndefined (Description) , "URL" :: NullOrUndefined (URL) } -> {"Description" :: NullOrUndefined (Description) , "URL" :: NullOrUndefined (URL) } ) -> Artifact
-newArtifact'  customize = (Artifact <<< customize) { "Description": (NullOrUndefined Nothing), "URL": (NullOrUndefined Nothing) }
+newArtifact' :: ( { "Description" :: Maybe (Description) , "URL" :: Maybe (URL) } -> {"Description" :: Maybe (Description) , "URL" :: Maybe (URL) } ) -> Artifact
+newArtifact'  customize = (Artifact <<< customize) { "Description": Nothing, "URL": Nothing }
 
 
 
@@ -62,7 +61,7 @@ instance encodeArtifactList :: Encode ArtifactList where encode = genericEncode 
 
 -- | The account specified does not have the appropriate bucket permissions.
 newtype BucketPermissionException = BucketPermissionException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeBucketPermissionException :: Newtype BucketPermissionException _
 derive instance repGenericBucketPermissionException :: Generic BucketPermissionException _
@@ -72,19 +71,19 @@ instance encodeBucketPermissionException :: Encode BucketPermissionException whe
 
 -- | Constructs BucketPermissionException from required parameters
 newBucketPermissionException :: BucketPermissionException
-newBucketPermissionException  = BucketPermissionException { "message": (NullOrUndefined Nothing) }
+newBucketPermissionException  = BucketPermissionException { "message": Nothing }
 
 -- | Constructs BucketPermissionException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBucketPermissionException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> BucketPermissionException
-newBucketPermissionException'  customize = (BucketPermissionException <<< customize) { "message": (NullOrUndefined Nothing) }
+newBucketPermissionException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> BucketPermissionException
+newBucketPermissionException'  customize = (BucketPermissionException <<< customize) { "message": Nothing }
 
 
 
 -- | Input structure for the CancelJob operation.
 newtype CancelJobInput = CancelJobInput 
   { "JobId" :: (JobId)
-  , "APIVersion" :: NullOrUndefined (APIVersion)
+  , "APIVersion" :: Maybe (APIVersion)
   }
 derive instance newtypeCancelJobInput :: Newtype CancelJobInput _
 derive instance repGenericCancelJobInput :: Generic CancelJobInput _
@@ -94,18 +93,18 @@ instance encodeCancelJobInput :: Encode CancelJobInput where encode = genericEnc
 
 -- | Constructs CancelJobInput from required parameters
 newCancelJobInput :: JobId -> CancelJobInput
-newCancelJobInput _JobId = CancelJobInput { "JobId": _JobId, "APIVersion": (NullOrUndefined Nothing) }
+newCancelJobInput _JobId = CancelJobInput { "JobId": _JobId, "APIVersion": Nothing }
 
 -- | Constructs CancelJobInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCancelJobInput' :: JobId -> ( { "JobId" :: (JobId) , "APIVersion" :: NullOrUndefined (APIVersion) } -> {"JobId" :: (JobId) , "APIVersion" :: NullOrUndefined (APIVersion) } ) -> CancelJobInput
-newCancelJobInput' _JobId customize = (CancelJobInput <<< customize) { "JobId": _JobId, "APIVersion": (NullOrUndefined Nothing) }
+newCancelJobInput' :: JobId -> ( { "JobId" :: (JobId) , "APIVersion" :: Maybe (APIVersion) } -> {"JobId" :: (JobId) , "APIVersion" :: Maybe (APIVersion) } ) -> CancelJobInput
+newCancelJobInput' _JobId customize = (CancelJobInput <<< customize) { "JobId": _JobId, "APIVersion": Nothing }
 
 
 
 -- | Output structure for the CancelJob operation.
 newtype CancelJobOutput = CancelJobOutput 
-  { "Success" :: NullOrUndefined (Success)
+  { "Success" :: Maybe (Success)
   }
 derive instance newtypeCancelJobOutput :: Newtype CancelJobOutput _
 derive instance repGenericCancelJobOutput :: Generic CancelJobOutput _
@@ -115,18 +114,18 @@ instance encodeCancelJobOutput :: Encode CancelJobOutput where encode = genericE
 
 -- | Constructs CancelJobOutput from required parameters
 newCancelJobOutput :: CancelJobOutput
-newCancelJobOutput  = CancelJobOutput { "Success": (NullOrUndefined Nothing) }
+newCancelJobOutput  = CancelJobOutput { "Success": Nothing }
 
 -- | Constructs CancelJobOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCancelJobOutput' :: ( { "Success" :: NullOrUndefined (Success) } -> {"Success" :: NullOrUndefined (Success) } ) -> CancelJobOutput
-newCancelJobOutput'  customize = (CancelJobOutput <<< customize) { "Success": (NullOrUndefined Nothing) }
+newCancelJobOutput' :: ( { "Success" :: Maybe (Success) } -> {"Success" :: Maybe (Success) } ) -> CancelJobOutput
+newCancelJobOutput'  customize = (CancelJobOutput <<< customize) { "Success": Nothing }
 
 
 
 -- | The specified job ID has been canceled and is no longer valid.
 newtype CanceledJobIdException = CanceledJobIdException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeCanceledJobIdException :: Newtype CanceledJobIdException _
 derive instance repGenericCanceledJobIdException :: Generic CanceledJobIdException _
@@ -136,12 +135,12 @@ instance encodeCanceledJobIdException :: Encode CanceledJobIdException where enc
 
 -- | Constructs CanceledJobIdException from required parameters
 newCanceledJobIdException :: CanceledJobIdException
-newCanceledJobIdException  = CanceledJobIdException { "message": (NullOrUndefined Nothing) }
+newCanceledJobIdException  = CanceledJobIdException { "message": Nothing }
 
 -- | Constructs CanceledJobIdException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCanceledJobIdException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> CanceledJobIdException
-newCanceledJobIdException'  customize = (CanceledJobIdException <<< customize) { "message": (NullOrUndefined Nothing) }
+newCanceledJobIdException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> CanceledJobIdException
+newCanceledJobIdException'  customize = (CanceledJobIdException <<< customize) { "message": Nothing }
 
 
 
@@ -159,9 +158,9 @@ instance encodeCarrier :: Encode Carrier where encode = genericEncode options
 newtype CreateJobInput = CreateJobInput 
   { "JobType" :: (JobType)
   , "Manifest" :: (Manifest)
-  , "ManifestAddendum" :: NullOrUndefined (ManifestAddendum)
+  , "ManifestAddendum" :: Maybe (ManifestAddendum)
   , "ValidateOnly" :: (ValidateOnly)
-  , "APIVersion" :: NullOrUndefined (APIVersion)
+  , "APIVersion" :: Maybe (APIVersion)
   }
 derive instance newtypeCreateJobInput :: Newtype CreateJobInput _
 derive instance repGenericCreateJobInput :: Generic CreateJobInput _
@@ -171,23 +170,23 @@ instance encodeCreateJobInput :: Encode CreateJobInput where encode = genericEnc
 
 -- | Constructs CreateJobInput from required parameters
 newCreateJobInput :: JobType -> Manifest -> ValidateOnly -> CreateJobInput
-newCreateJobInput _JobType _Manifest _ValidateOnly = CreateJobInput { "JobType": _JobType, "Manifest": _Manifest, "ValidateOnly": _ValidateOnly, "APIVersion": (NullOrUndefined Nothing), "ManifestAddendum": (NullOrUndefined Nothing) }
+newCreateJobInput _JobType _Manifest _ValidateOnly = CreateJobInput { "JobType": _JobType, "Manifest": _Manifest, "ValidateOnly": _ValidateOnly, "APIVersion": Nothing, "ManifestAddendum": Nothing }
 
 -- | Constructs CreateJobInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateJobInput' :: JobType -> Manifest -> ValidateOnly -> ( { "JobType" :: (JobType) , "Manifest" :: (Manifest) , "ManifestAddendum" :: NullOrUndefined (ManifestAddendum) , "ValidateOnly" :: (ValidateOnly) , "APIVersion" :: NullOrUndefined (APIVersion) } -> {"JobType" :: (JobType) , "Manifest" :: (Manifest) , "ManifestAddendum" :: NullOrUndefined (ManifestAddendum) , "ValidateOnly" :: (ValidateOnly) , "APIVersion" :: NullOrUndefined (APIVersion) } ) -> CreateJobInput
-newCreateJobInput' _JobType _Manifest _ValidateOnly customize = (CreateJobInput <<< customize) { "JobType": _JobType, "Manifest": _Manifest, "ValidateOnly": _ValidateOnly, "APIVersion": (NullOrUndefined Nothing), "ManifestAddendum": (NullOrUndefined Nothing) }
+newCreateJobInput' :: JobType -> Manifest -> ValidateOnly -> ( { "JobType" :: (JobType) , "Manifest" :: (Manifest) , "ManifestAddendum" :: Maybe (ManifestAddendum) , "ValidateOnly" :: (ValidateOnly) , "APIVersion" :: Maybe (APIVersion) } -> {"JobType" :: (JobType) , "Manifest" :: (Manifest) , "ManifestAddendum" :: Maybe (ManifestAddendum) , "ValidateOnly" :: (ValidateOnly) , "APIVersion" :: Maybe (APIVersion) } ) -> CreateJobInput
+newCreateJobInput' _JobType _Manifest _ValidateOnly customize = (CreateJobInput <<< customize) { "JobType": _JobType, "Manifest": _Manifest, "ValidateOnly": _ValidateOnly, "APIVersion": Nothing, "ManifestAddendum": Nothing }
 
 
 
 -- | Output structure for the CreateJob operation.
 newtype CreateJobOutput = CreateJobOutput 
-  { "JobId" :: NullOrUndefined (JobId)
-  , "JobType" :: NullOrUndefined (JobType)
-  , "Signature" :: NullOrUndefined (Signature)
-  , "SignatureFileContents" :: NullOrUndefined (SignatureFileContents)
-  , "WarningMessage" :: NullOrUndefined (WarningMessage)
-  , "ArtifactList" :: NullOrUndefined (ArtifactList)
+  { "JobId" :: Maybe (JobId)
+  , "JobType" :: Maybe (JobType)
+  , "Signature" :: Maybe (Signature)
+  , "SignatureFileContents" :: Maybe (SignatureFileContents)
+  , "WarningMessage" :: Maybe (WarningMessage)
+  , "ArtifactList" :: Maybe (ArtifactList)
   }
 derive instance newtypeCreateJobOutput :: Newtype CreateJobOutput _
 derive instance repGenericCreateJobOutput :: Generic CreateJobOutput _
@@ -197,18 +196,18 @@ instance encodeCreateJobOutput :: Encode CreateJobOutput where encode = genericE
 
 -- | Constructs CreateJobOutput from required parameters
 newCreateJobOutput :: CreateJobOutput
-newCreateJobOutput  = CreateJobOutput { "ArtifactList": (NullOrUndefined Nothing), "JobId": (NullOrUndefined Nothing), "JobType": (NullOrUndefined Nothing), "Signature": (NullOrUndefined Nothing), "SignatureFileContents": (NullOrUndefined Nothing), "WarningMessage": (NullOrUndefined Nothing) }
+newCreateJobOutput  = CreateJobOutput { "ArtifactList": Nothing, "JobId": Nothing, "JobType": Nothing, "Signature": Nothing, "SignatureFileContents": Nothing, "WarningMessage": Nothing }
 
 -- | Constructs CreateJobOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateJobOutput' :: ( { "JobId" :: NullOrUndefined (JobId) , "JobType" :: NullOrUndefined (JobType) , "Signature" :: NullOrUndefined (Signature) , "SignatureFileContents" :: NullOrUndefined (SignatureFileContents) , "WarningMessage" :: NullOrUndefined (WarningMessage) , "ArtifactList" :: NullOrUndefined (ArtifactList) } -> {"JobId" :: NullOrUndefined (JobId) , "JobType" :: NullOrUndefined (JobType) , "Signature" :: NullOrUndefined (Signature) , "SignatureFileContents" :: NullOrUndefined (SignatureFileContents) , "WarningMessage" :: NullOrUndefined (WarningMessage) , "ArtifactList" :: NullOrUndefined (ArtifactList) } ) -> CreateJobOutput
-newCreateJobOutput'  customize = (CreateJobOutput <<< customize) { "ArtifactList": (NullOrUndefined Nothing), "JobId": (NullOrUndefined Nothing), "JobType": (NullOrUndefined Nothing), "Signature": (NullOrUndefined Nothing), "SignatureFileContents": (NullOrUndefined Nothing), "WarningMessage": (NullOrUndefined Nothing) }
+newCreateJobOutput' :: ( { "JobId" :: Maybe (JobId) , "JobType" :: Maybe (JobType) , "Signature" :: Maybe (Signature) , "SignatureFileContents" :: Maybe (SignatureFileContents) , "WarningMessage" :: Maybe (WarningMessage) , "ArtifactList" :: Maybe (ArtifactList) } -> {"JobId" :: Maybe (JobId) , "JobType" :: Maybe (JobType) , "Signature" :: Maybe (Signature) , "SignatureFileContents" :: Maybe (SignatureFileContents) , "WarningMessage" :: Maybe (WarningMessage) , "ArtifactList" :: Maybe (ArtifactList) } ) -> CreateJobOutput
+newCreateJobOutput'  customize = (CreateJobOutput <<< customize) { "ArtifactList": Nothing, "JobId": Nothing, "JobType": Nothing, "Signature": Nothing, "SignatureFileContents": Nothing, "WarningMessage": Nothing }
 
 
 
 -- | Each account can create only a certain number of jobs per day. If you need to create more than this, please contact awsimportexport@amazon.com to explain your particular use case.
 newtype CreateJobQuotaExceededException = CreateJobQuotaExceededException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeCreateJobQuotaExceededException :: Newtype CreateJobQuotaExceededException _
 derive instance repGenericCreateJobQuotaExceededException :: Generic CreateJobQuotaExceededException _
@@ -218,12 +217,12 @@ instance encodeCreateJobQuotaExceededException :: Encode CreateJobQuotaExceededE
 
 -- | Constructs CreateJobQuotaExceededException from required parameters
 newCreateJobQuotaExceededException :: CreateJobQuotaExceededException
-newCreateJobQuotaExceededException  = CreateJobQuotaExceededException { "message": (NullOrUndefined Nothing) }
+newCreateJobQuotaExceededException  = CreateJobQuotaExceededException { "message": Nothing }
 
 -- | Constructs CreateJobQuotaExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateJobQuotaExceededException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> CreateJobQuotaExceededException
-newCreateJobQuotaExceededException'  customize = (CreateJobQuotaExceededException <<< customize) { "message": (NullOrUndefined Nothing) }
+newCreateJobQuotaExceededException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> CreateJobQuotaExceededException
+newCreateJobQuotaExceededException'  customize = (CreateJobQuotaExceededException <<< customize) { "message": Nothing }
 
 
 
@@ -279,7 +278,7 @@ instance encodeErrorMessage :: Encode ErrorMessage where encode = genericEncode 
 
 -- | Indicates that the specified job has expired out of the system.
 newtype ExpiredJobIdException = ExpiredJobIdException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeExpiredJobIdException :: Newtype ExpiredJobIdException _
 derive instance repGenericExpiredJobIdException :: Generic ExpiredJobIdException _
@@ -289,12 +288,12 @@ instance encodeExpiredJobIdException :: Encode ExpiredJobIdException where encod
 
 -- | Constructs ExpiredJobIdException from required parameters
 newExpiredJobIdException :: ExpiredJobIdException
-newExpiredJobIdException  = ExpiredJobIdException { "message": (NullOrUndefined Nothing) }
+newExpiredJobIdException  = ExpiredJobIdException { "message": Nothing }
 
 -- | Constructs ExpiredJobIdException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newExpiredJobIdException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> ExpiredJobIdException
-newExpiredJobIdException'  customize = (ExpiredJobIdException <<< customize) { "message": (NullOrUndefined Nothing) }
+newExpiredJobIdException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> ExpiredJobIdException
+newExpiredJobIdException'  customize = (ExpiredJobIdException <<< customize) { "message": Nothing }
 
 
 
@@ -309,17 +308,17 @@ instance encodeGenericString :: Encode GenericString where encode = genericEncod
 
 newtype GetShippingLabelInput = GetShippingLabelInput 
   { "jobIds" :: (JobIdList)
-  , "name" :: NullOrUndefined (Name')
-  , "company" :: NullOrUndefined (Company')
-  , "phoneNumber" :: NullOrUndefined (PhoneNumber')
-  , "country" :: NullOrUndefined (Country')
-  , "stateOrProvince" :: NullOrUndefined (StateOrProvince')
-  , "city" :: NullOrUndefined (City')
-  , "postalCode" :: NullOrUndefined (PostalCode')
-  , "street1" :: NullOrUndefined (Street1')
-  , "street2" :: NullOrUndefined (Street2')
-  , "street3" :: NullOrUndefined (Street3')
-  , "APIVersion" :: NullOrUndefined (APIVersion)
+  , "name" :: Maybe (Name')
+  , "company" :: Maybe (Company')
+  , "phoneNumber" :: Maybe (PhoneNumber')
+  , "country" :: Maybe (Country')
+  , "stateOrProvince" :: Maybe (StateOrProvince')
+  , "city" :: Maybe (City')
+  , "postalCode" :: Maybe (PostalCode')
+  , "street1" :: Maybe (Street1')
+  , "street2" :: Maybe (Street2')
+  , "street3" :: Maybe (Street3')
+  , "APIVersion" :: Maybe (APIVersion)
   }
 derive instance newtypeGetShippingLabelInput :: Newtype GetShippingLabelInput _
 derive instance repGenericGetShippingLabelInput :: Generic GetShippingLabelInput _
@@ -329,18 +328,18 @@ instance encodeGetShippingLabelInput :: Encode GetShippingLabelInput where encod
 
 -- | Constructs GetShippingLabelInput from required parameters
 newGetShippingLabelInput :: JobIdList -> GetShippingLabelInput
-newGetShippingLabelInput _jobIds = GetShippingLabelInput { "jobIds": _jobIds, "APIVersion": (NullOrUndefined Nothing), "city": (NullOrUndefined Nothing), "company": (NullOrUndefined Nothing), "country": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "phoneNumber": (NullOrUndefined Nothing), "postalCode": (NullOrUndefined Nothing), "stateOrProvince": (NullOrUndefined Nothing), "street1": (NullOrUndefined Nothing), "street2": (NullOrUndefined Nothing), "street3": (NullOrUndefined Nothing) }
+newGetShippingLabelInput _jobIds = GetShippingLabelInput { "jobIds": _jobIds, "APIVersion": Nothing, "city": Nothing, "company": Nothing, "country": Nothing, "name": Nothing, "phoneNumber": Nothing, "postalCode": Nothing, "stateOrProvince": Nothing, "street1": Nothing, "street2": Nothing, "street3": Nothing }
 
 -- | Constructs GetShippingLabelInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetShippingLabelInput' :: JobIdList -> ( { "jobIds" :: (JobIdList) , "name" :: NullOrUndefined (Name') , "company" :: NullOrUndefined (Company') , "phoneNumber" :: NullOrUndefined (PhoneNumber') , "country" :: NullOrUndefined (Country') , "stateOrProvince" :: NullOrUndefined (StateOrProvince') , "city" :: NullOrUndefined (City') , "postalCode" :: NullOrUndefined (PostalCode') , "street1" :: NullOrUndefined (Street1') , "street2" :: NullOrUndefined (Street2') , "street3" :: NullOrUndefined (Street3') , "APIVersion" :: NullOrUndefined (APIVersion) } -> {"jobIds" :: (JobIdList) , "name" :: NullOrUndefined (Name') , "company" :: NullOrUndefined (Company') , "phoneNumber" :: NullOrUndefined (PhoneNumber') , "country" :: NullOrUndefined (Country') , "stateOrProvince" :: NullOrUndefined (StateOrProvince') , "city" :: NullOrUndefined (City') , "postalCode" :: NullOrUndefined (PostalCode') , "street1" :: NullOrUndefined (Street1') , "street2" :: NullOrUndefined (Street2') , "street3" :: NullOrUndefined (Street3') , "APIVersion" :: NullOrUndefined (APIVersion) } ) -> GetShippingLabelInput
-newGetShippingLabelInput' _jobIds customize = (GetShippingLabelInput <<< customize) { "jobIds": _jobIds, "APIVersion": (NullOrUndefined Nothing), "city": (NullOrUndefined Nothing), "company": (NullOrUndefined Nothing), "country": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "phoneNumber": (NullOrUndefined Nothing), "postalCode": (NullOrUndefined Nothing), "stateOrProvince": (NullOrUndefined Nothing), "street1": (NullOrUndefined Nothing), "street2": (NullOrUndefined Nothing), "street3": (NullOrUndefined Nothing) }
+newGetShippingLabelInput' :: JobIdList -> ( { "jobIds" :: (JobIdList) , "name" :: Maybe (Name') , "company" :: Maybe (Company') , "phoneNumber" :: Maybe (PhoneNumber') , "country" :: Maybe (Country') , "stateOrProvince" :: Maybe (StateOrProvince') , "city" :: Maybe (City') , "postalCode" :: Maybe (PostalCode') , "street1" :: Maybe (Street1') , "street2" :: Maybe (Street2') , "street3" :: Maybe (Street3') , "APIVersion" :: Maybe (APIVersion) } -> {"jobIds" :: (JobIdList) , "name" :: Maybe (Name') , "company" :: Maybe (Company') , "phoneNumber" :: Maybe (PhoneNumber') , "country" :: Maybe (Country') , "stateOrProvince" :: Maybe (StateOrProvince') , "city" :: Maybe (City') , "postalCode" :: Maybe (PostalCode') , "street1" :: Maybe (Street1') , "street2" :: Maybe (Street2') , "street3" :: Maybe (Street3') , "APIVersion" :: Maybe (APIVersion) } ) -> GetShippingLabelInput
+newGetShippingLabelInput' _jobIds customize = (GetShippingLabelInput <<< customize) { "jobIds": _jobIds, "APIVersion": Nothing, "city": Nothing, "company": Nothing, "country": Nothing, "name": Nothing, "phoneNumber": Nothing, "postalCode": Nothing, "stateOrProvince": Nothing, "street1": Nothing, "street2": Nothing, "street3": Nothing }
 
 
 
 newtype GetShippingLabelOutput = GetShippingLabelOutput 
-  { "ShippingLabelURL" :: NullOrUndefined (GenericString)
-  , "Warning" :: NullOrUndefined (GenericString)
+  { "ShippingLabelURL" :: Maybe (GenericString)
+  , "Warning" :: Maybe (GenericString)
   }
 derive instance newtypeGetShippingLabelOutput :: Newtype GetShippingLabelOutput _
 derive instance repGenericGetShippingLabelOutput :: Generic GetShippingLabelOutput _
@@ -350,19 +349,19 @@ instance encodeGetShippingLabelOutput :: Encode GetShippingLabelOutput where enc
 
 -- | Constructs GetShippingLabelOutput from required parameters
 newGetShippingLabelOutput :: GetShippingLabelOutput
-newGetShippingLabelOutput  = GetShippingLabelOutput { "ShippingLabelURL": (NullOrUndefined Nothing), "Warning": (NullOrUndefined Nothing) }
+newGetShippingLabelOutput  = GetShippingLabelOutput { "ShippingLabelURL": Nothing, "Warning": Nothing }
 
 -- | Constructs GetShippingLabelOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetShippingLabelOutput' :: ( { "ShippingLabelURL" :: NullOrUndefined (GenericString) , "Warning" :: NullOrUndefined (GenericString) } -> {"ShippingLabelURL" :: NullOrUndefined (GenericString) , "Warning" :: NullOrUndefined (GenericString) } ) -> GetShippingLabelOutput
-newGetShippingLabelOutput'  customize = (GetShippingLabelOutput <<< customize) { "ShippingLabelURL": (NullOrUndefined Nothing), "Warning": (NullOrUndefined Nothing) }
+newGetShippingLabelOutput' :: ( { "ShippingLabelURL" :: Maybe (GenericString) , "Warning" :: Maybe (GenericString) } -> {"ShippingLabelURL" :: Maybe (GenericString) , "Warning" :: Maybe (GenericString) } ) -> GetShippingLabelOutput
+newGetShippingLabelOutput'  customize = (GetShippingLabelOutput <<< customize) { "ShippingLabelURL": Nothing, "Warning": Nothing }
 
 
 
 -- | Input structure for the GetStatus operation.
 newtype GetStatusInput = GetStatusInput 
   { "JobId" :: (JobId)
-  , "APIVersion" :: NullOrUndefined (APIVersion)
+  , "APIVersion" :: Maybe (APIVersion)
   }
 derive instance newtypeGetStatusInput :: Newtype GetStatusInput _
 derive instance repGenericGetStatusInput :: Generic GetStatusInput _
@@ -372,33 +371,33 @@ instance encodeGetStatusInput :: Encode GetStatusInput where encode = genericEnc
 
 -- | Constructs GetStatusInput from required parameters
 newGetStatusInput :: JobId -> GetStatusInput
-newGetStatusInput _JobId = GetStatusInput { "JobId": _JobId, "APIVersion": (NullOrUndefined Nothing) }
+newGetStatusInput _JobId = GetStatusInput { "JobId": _JobId, "APIVersion": Nothing }
 
 -- | Constructs GetStatusInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetStatusInput' :: JobId -> ( { "JobId" :: (JobId) , "APIVersion" :: NullOrUndefined (APIVersion) } -> {"JobId" :: (JobId) , "APIVersion" :: NullOrUndefined (APIVersion) } ) -> GetStatusInput
-newGetStatusInput' _JobId customize = (GetStatusInput <<< customize) { "JobId": _JobId, "APIVersion": (NullOrUndefined Nothing) }
+newGetStatusInput' :: JobId -> ( { "JobId" :: (JobId) , "APIVersion" :: Maybe (APIVersion) } -> {"JobId" :: (JobId) , "APIVersion" :: Maybe (APIVersion) } ) -> GetStatusInput
+newGetStatusInput' _JobId customize = (GetStatusInput <<< customize) { "JobId": _JobId, "APIVersion": Nothing }
 
 
 
 -- | Output structure for the GetStatus operation.
 newtype GetStatusOutput = GetStatusOutput 
-  { "JobId" :: NullOrUndefined (JobId)
-  , "JobType" :: NullOrUndefined (JobType)
-  , "LocationCode" :: NullOrUndefined (LocationCode)
-  , "LocationMessage" :: NullOrUndefined (LocationMessage)
-  , "ProgressCode" :: NullOrUndefined (ProgressCode)
-  , "ProgressMessage" :: NullOrUndefined (ProgressMessage)
-  , "Carrier" :: NullOrUndefined (Carrier)
-  , "TrackingNumber" :: NullOrUndefined (TrackingNumber)
-  , "LogBucket" :: NullOrUndefined (LogBucket)
-  , "LogKey" :: NullOrUndefined (LogKey)
-  , "ErrorCount" :: NullOrUndefined (ErrorCount)
-  , "Signature" :: NullOrUndefined (Signature)
-  , "SignatureFileContents" :: NullOrUndefined (Signature)
-  , "CurrentManifest" :: NullOrUndefined (CurrentManifest)
-  , "CreationDate" :: NullOrUndefined (CreationDate)
-  , "ArtifactList" :: NullOrUndefined (ArtifactList)
+  { "JobId" :: Maybe (JobId)
+  , "JobType" :: Maybe (JobType)
+  , "LocationCode" :: Maybe (LocationCode)
+  , "LocationMessage" :: Maybe (LocationMessage)
+  , "ProgressCode" :: Maybe (ProgressCode)
+  , "ProgressMessage" :: Maybe (ProgressMessage)
+  , "Carrier" :: Maybe (Carrier)
+  , "TrackingNumber" :: Maybe (TrackingNumber)
+  , "LogBucket" :: Maybe (LogBucket)
+  , "LogKey" :: Maybe (LogKey)
+  , "ErrorCount" :: Maybe (ErrorCount)
+  , "Signature" :: Maybe (Signature)
+  , "SignatureFileContents" :: Maybe (Signature)
+  , "CurrentManifest" :: Maybe (CurrentManifest)
+  , "CreationDate" :: Maybe (CreationDate)
+  , "ArtifactList" :: Maybe (ArtifactList)
   }
 derive instance newtypeGetStatusOutput :: Newtype GetStatusOutput _
 derive instance repGenericGetStatusOutput :: Generic GetStatusOutput _
@@ -408,18 +407,18 @@ instance encodeGetStatusOutput :: Encode GetStatusOutput where encode = genericE
 
 -- | Constructs GetStatusOutput from required parameters
 newGetStatusOutput :: GetStatusOutput
-newGetStatusOutput  = GetStatusOutput { "ArtifactList": (NullOrUndefined Nothing), "Carrier": (NullOrUndefined Nothing), "CreationDate": (NullOrUndefined Nothing), "CurrentManifest": (NullOrUndefined Nothing), "ErrorCount": (NullOrUndefined Nothing), "JobId": (NullOrUndefined Nothing), "JobType": (NullOrUndefined Nothing), "LocationCode": (NullOrUndefined Nothing), "LocationMessage": (NullOrUndefined Nothing), "LogBucket": (NullOrUndefined Nothing), "LogKey": (NullOrUndefined Nothing), "ProgressCode": (NullOrUndefined Nothing), "ProgressMessage": (NullOrUndefined Nothing), "Signature": (NullOrUndefined Nothing), "SignatureFileContents": (NullOrUndefined Nothing), "TrackingNumber": (NullOrUndefined Nothing) }
+newGetStatusOutput  = GetStatusOutput { "ArtifactList": Nothing, "Carrier": Nothing, "CreationDate": Nothing, "CurrentManifest": Nothing, "ErrorCount": Nothing, "JobId": Nothing, "JobType": Nothing, "LocationCode": Nothing, "LocationMessage": Nothing, "LogBucket": Nothing, "LogKey": Nothing, "ProgressCode": Nothing, "ProgressMessage": Nothing, "Signature": Nothing, "SignatureFileContents": Nothing, "TrackingNumber": Nothing }
 
 -- | Constructs GetStatusOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetStatusOutput' :: ( { "JobId" :: NullOrUndefined (JobId) , "JobType" :: NullOrUndefined (JobType) , "LocationCode" :: NullOrUndefined (LocationCode) , "LocationMessage" :: NullOrUndefined (LocationMessage) , "ProgressCode" :: NullOrUndefined (ProgressCode) , "ProgressMessage" :: NullOrUndefined (ProgressMessage) , "Carrier" :: NullOrUndefined (Carrier) , "TrackingNumber" :: NullOrUndefined (TrackingNumber) , "LogBucket" :: NullOrUndefined (LogBucket) , "LogKey" :: NullOrUndefined (LogKey) , "ErrorCount" :: NullOrUndefined (ErrorCount) , "Signature" :: NullOrUndefined (Signature) , "SignatureFileContents" :: NullOrUndefined (Signature) , "CurrentManifest" :: NullOrUndefined (CurrentManifest) , "CreationDate" :: NullOrUndefined (CreationDate) , "ArtifactList" :: NullOrUndefined (ArtifactList) } -> {"JobId" :: NullOrUndefined (JobId) , "JobType" :: NullOrUndefined (JobType) , "LocationCode" :: NullOrUndefined (LocationCode) , "LocationMessage" :: NullOrUndefined (LocationMessage) , "ProgressCode" :: NullOrUndefined (ProgressCode) , "ProgressMessage" :: NullOrUndefined (ProgressMessage) , "Carrier" :: NullOrUndefined (Carrier) , "TrackingNumber" :: NullOrUndefined (TrackingNumber) , "LogBucket" :: NullOrUndefined (LogBucket) , "LogKey" :: NullOrUndefined (LogKey) , "ErrorCount" :: NullOrUndefined (ErrorCount) , "Signature" :: NullOrUndefined (Signature) , "SignatureFileContents" :: NullOrUndefined (Signature) , "CurrentManifest" :: NullOrUndefined (CurrentManifest) , "CreationDate" :: NullOrUndefined (CreationDate) , "ArtifactList" :: NullOrUndefined (ArtifactList) } ) -> GetStatusOutput
-newGetStatusOutput'  customize = (GetStatusOutput <<< customize) { "ArtifactList": (NullOrUndefined Nothing), "Carrier": (NullOrUndefined Nothing), "CreationDate": (NullOrUndefined Nothing), "CurrentManifest": (NullOrUndefined Nothing), "ErrorCount": (NullOrUndefined Nothing), "JobId": (NullOrUndefined Nothing), "JobType": (NullOrUndefined Nothing), "LocationCode": (NullOrUndefined Nothing), "LocationMessage": (NullOrUndefined Nothing), "LogBucket": (NullOrUndefined Nothing), "LogKey": (NullOrUndefined Nothing), "ProgressCode": (NullOrUndefined Nothing), "ProgressMessage": (NullOrUndefined Nothing), "Signature": (NullOrUndefined Nothing), "SignatureFileContents": (NullOrUndefined Nothing), "TrackingNumber": (NullOrUndefined Nothing) }
+newGetStatusOutput' :: ( { "JobId" :: Maybe (JobId) , "JobType" :: Maybe (JobType) , "LocationCode" :: Maybe (LocationCode) , "LocationMessage" :: Maybe (LocationMessage) , "ProgressCode" :: Maybe (ProgressCode) , "ProgressMessage" :: Maybe (ProgressMessage) , "Carrier" :: Maybe (Carrier) , "TrackingNumber" :: Maybe (TrackingNumber) , "LogBucket" :: Maybe (LogBucket) , "LogKey" :: Maybe (LogKey) , "ErrorCount" :: Maybe (ErrorCount) , "Signature" :: Maybe (Signature) , "SignatureFileContents" :: Maybe (Signature) , "CurrentManifest" :: Maybe (CurrentManifest) , "CreationDate" :: Maybe (CreationDate) , "ArtifactList" :: Maybe (ArtifactList) } -> {"JobId" :: Maybe (JobId) , "JobType" :: Maybe (JobType) , "LocationCode" :: Maybe (LocationCode) , "LocationMessage" :: Maybe (LocationMessage) , "ProgressCode" :: Maybe (ProgressCode) , "ProgressMessage" :: Maybe (ProgressMessage) , "Carrier" :: Maybe (Carrier) , "TrackingNumber" :: Maybe (TrackingNumber) , "LogBucket" :: Maybe (LogBucket) , "LogKey" :: Maybe (LogKey) , "ErrorCount" :: Maybe (ErrorCount) , "Signature" :: Maybe (Signature) , "SignatureFileContents" :: Maybe (Signature) , "CurrentManifest" :: Maybe (CurrentManifest) , "CreationDate" :: Maybe (CreationDate) , "ArtifactList" :: Maybe (ArtifactList) } ) -> GetStatusOutput
+newGetStatusOutput'  customize = (GetStatusOutput <<< customize) { "ArtifactList": Nothing, "Carrier": Nothing, "CreationDate": Nothing, "CurrentManifest": Nothing, "ErrorCount": Nothing, "JobId": Nothing, "JobType": Nothing, "LocationCode": Nothing, "LocationMessage": Nothing, "LogBucket": Nothing, "LogKey": Nothing, "ProgressCode": Nothing, "ProgressMessage": Nothing, "Signature": Nothing, "SignatureFileContents": Nothing, "TrackingNumber": Nothing }
 
 
 
 -- | The AWS Access Key ID specified in the request did not match the manifest's accessKeyId value. The manifest and the request authentication must use the same AWS Access Key ID.
 newtype InvalidAccessKeyIdException = InvalidAccessKeyIdException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidAccessKeyIdException :: Newtype InvalidAccessKeyIdException _
 derive instance repGenericInvalidAccessKeyIdException :: Generic InvalidAccessKeyIdException _
@@ -429,18 +428,18 @@ instance encodeInvalidAccessKeyIdException :: Encode InvalidAccessKeyIdException
 
 -- | Constructs InvalidAccessKeyIdException from required parameters
 newInvalidAccessKeyIdException :: InvalidAccessKeyIdException
-newInvalidAccessKeyIdException  = InvalidAccessKeyIdException { "message": (NullOrUndefined Nothing) }
+newInvalidAccessKeyIdException  = InvalidAccessKeyIdException { "message": Nothing }
 
 -- | Constructs InvalidAccessKeyIdException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidAccessKeyIdException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidAccessKeyIdException
-newInvalidAccessKeyIdException'  customize = (InvalidAccessKeyIdException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidAccessKeyIdException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidAccessKeyIdException
+newInvalidAccessKeyIdException'  customize = (InvalidAccessKeyIdException <<< customize) { "message": Nothing }
 
 
 
 -- | The address specified in the manifest is invalid.
 newtype InvalidAddressException = InvalidAddressException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidAddressException :: Newtype InvalidAddressException _
 derive instance repGenericInvalidAddressException :: Generic InvalidAddressException _
@@ -450,18 +449,18 @@ instance encodeInvalidAddressException :: Encode InvalidAddressException where e
 
 -- | Constructs InvalidAddressException from required parameters
 newInvalidAddressException :: InvalidAddressException
-newInvalidAddressException  = InvalidAddressException { "message": (NullOrUndefined Nothing) }
+newInvalidAddressException  = InvalidAddressException { "message": Nothing }
 
 -- | Constructs InvalidAddressException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidAddressException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidAddressException
-newInvalidAddressException'  customize = (InvalidAddressException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidAddressException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidAddressException
+newInvalidAddressException'  customize = (InvalidAddressException <<< customize) { "message": Nothing }
 
 
 
 -- | One or more customs parameters was invalid. Please correct and resubmit.
 newtype InvalidCustomsException = InvalidCustomsException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidCustomsException :: Newtype InvalidCustomsException _
 derive instance repGenericInvalidCustomsException :: Generic InvalidCustomsException _
@@ -471,18 +470,18 @@ instance encodeInvalidCustomsException :: Encode InvalidCustomsException where e
 
 -- | Constructs InvalidCustomsException from required parameters
 newInvalidCustomsException :: InvalidCustomsException
-newInvalidCustomsException  = InvalidCustomsException { "message": (NullOrUndefined Nothing) }
+newInvalidCustomsException  = InvalidCustomsException { "message": Nothing }
 
 -- | Constructs InvalidCustomsException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidCustomsException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidCustomsException
-newInvalidCustomsException'  customize = (InvalidCustomsException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidCustomsException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidCustomsException
+newInvalidCustomsException'  customize = (InvalidCustomsException <<< customize) { "message": Nothing }
 
 
 
 -- | File system specified in export manifest is invalid.
 newtype InvalidFileSystemException = InvalidFileSystemException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidFileSystemException :: Newtype InvalidFileSystemException _
 derive instance repGenericInvalidFileSystemException :: Generic InvalidFileSystemException _
@@ -492,18 +491,18 @@ instance encodeInvalidFileSystemException :: Encode InvalidFileSystemException w
 
 -- | Constructs InvalidFileSystemException from required parameters
 newInvalidFileSystemException :: InvalidFileSystemException
-newInvalidFileSystemException  = InvalidFileSystemException { "message": (NullOrUndefined Nothing) }
+newInvalidFileSystemException  = InvalidFileSystemException { "message": Nothing }
 
 -- | Constructs InvalidFileSystemException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidFileSystemException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidFileSystemException
-newInvalidFileSystemException'  customize = (InvalidFileSystemException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidFileSystemException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidFileSystemException
+newInvalidFileSystemException'  customize = (InvalidFileSystemException <<< customize) { "message": Nothing }
 
 
 
 -- | The JOBID was missing, not found, or not associated with the AWS account.
 newtype InvalidJobIdException = InvalidJobIdException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidJobIdException :: Newtype InvalidJobIdException _
 derive instance repGenericInvalidJobIdException :: Generic InvalidJobIdException _
@@ -513,18 +512,18 @@ instance encodeInvalidJobIdException :: Encode InvalidJobIdException where encod
 
 -- | Constructs InvalidJobIdException from required parameters
 newInvalidJobIdException :: InvalidJobIdException
-newInvalidJobIdException  = InvalidJobIdException { "message": (NullOrUndefined Nothing) }
+newInvalidJobIdException  = InvalidJobIdException { "message": Nothing }
 
 -- | Constructs InvalidJobIdException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidJobIdException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidJobIdException
-newInvalidJobIdException'  customize = (InvalidJobIdException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidJobIdException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidJobIdException
+newInvalidJobIdException'  customize = (InvalidJobIdException <<< customize) { "message": Nothing }
 
 
 
 -- | One or more manifest fields was invalid. Please correct and resubmit.
 newtype InvalidManifestFieldException = InvalidManifestFieldException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidManifestFieldException :: Newtype InvalidManifestFieldException _
 derive instance repGenericInvalidManifestFieldException :: Generic InvalidManifestFieldException _
@@ -534,18 +533,18 @@ instance encodeInvalidManifestFieldException :: Encode InvalidManifestFieldExcep
 
 -- | Constructs InvalidManifestFieldException from required parameters
 newInvalidManifestFieldException :: InvalidManifestFieldException
-newInvalidManifestFieldException  = InvalidManifestFieldException { "message": (NullOrUndefined Nothing) }
+newInvalidManifestFieldException  = InvalidManifestFieldException { "message": Nothing }
 
 -- | Constructs InvalidManifestFieldException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidManifestFieldException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidManifestFieldException
-newInvalidManifestFieldException'  customize = (InvalidManifestFieldException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidManifestFieldException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidManifestFieldException
+newInvalidManifestFieldException'  customize = (InvalidManifestFieldException <<< customize) { "message": Nothing }
 
 
 
 -- | One or more parameters had an invalid value.
 newtype InvalidParameterException = InvalidParameterException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidParameterException :: Newtype InvalidParameterException _
 derive instance repGenericInvalidParameterException :: Generic InvalidParameterException _
@@ -555,18 +554,18 @@ instance encodeInvalidParameterException :: Encode InvalidParameterException whe
 
 -- | Constructs InvalidParameterException from required parameters
 newInvalidParameterException :: InvalidParameterException
-newInvalidParameterException  = InvalidParameterException { "message": (NullOrUndefined Nothing) }
+newInvalidParameterException  = InvalidParameterException { "message": Nothing }
 
 -- | Constructs InvalidParameterException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidParameterException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidParameterException
-newInvalidParameterException'  customize = (InvalidParameterException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidParameterException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidParameterException
+newInvalidParameterException'  customize = (InvalidParameterException <<< customize) { "message": Nothing }
 
 
 
 -- | The client tool version is invalid.
 newtype InvalidVersionException = InvalidVersionException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidVersionException :: Newtype InvalidVersionException _
 derive instance repGenericInvalidVersionException :: Generic InvalidVersionException _
@@ -576,12 +575,12 @@ instance encodeInvalidVersionException :: Encode InvalidVersionException where e
 
 -- | Constructs InvalidVersionException from required parameters
 newInvalidVersionException :: InvalidVersionException
-newInvalidVersionException  = InvalidVersionException { "message": (NullOrUndefined Nothing) }
+newInvalidVersionException  = InvalidVersionException { "message": Nothing }
 
 -- | Constructs InvalidVersionException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidVersionException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidVersionException
-newInvalidVersionException'  customize = (InvalidVersionException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidVersionException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidVersionException
+newInvalidVersionException'  customize = (InvalidVersionException <<< customize) { "message": Nothing }
 
 
 
@@ -607,10 +606,10 @@ instance encodeIsTruncated :: Encode IsTruncated where encode = genericEncode op
 
 -- | Representation of a job returned by the ListJobs operation.
 newtype Job = Job 
-  { "JobId" :: NullOrUndefined (JobId)
-  , "CreationDate" :: NullOrUndefined (CreationDate)
-  , "IsCanceled" :: NullOrUndefined (IsCanceled)
-  , "JobType" :: NullOrUndefined (JobType)
+  { "JobId" :: Maybe (JobId)
+  , "CreationDate" :: Maybe (CreationDate)
+  , "IsCanceled" :: Maybe (IsCanceled)
+  , "JobType" :: Maybe (JobType)
   }
 derive instance newtypeJob :: Newtype Job _
 derive instance repGenericJob :: Generic Job _
@@ -620,12 +619,12 @@ instance encodeJob :: Encode Job where encode = genericEncode options
 
 -- | Constructs Job from required parameters
 newJob :: Job
-newJob  = Job { "CreationDate": (NullOrUndefined Nothing), "IsCanceled": (NullOrUndefined Nothing), "JobId": (NullOrUndefined Nothing), "JobType": (NullOrUndefined Nothing) }
+newJob  = Job { "CreationDate": Nothing, "IsCanceled": Nothing, "JobId": Nothing, "JobType": Nothing }
 
 -- | Constructs Job's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newJob' :: ( { "JobId" :: NullOrUndefined (JobId) , "CreationDate" :: NullOrUndefined (CreationDate) , "IsCanceled" :: NullOrUndefined (IsCanceled) , "JobType" :: NullOrUndefined (JobType) } -> {"JobId" :: NullOrUndefined (JobId) , "CreationDate" :: NullOrUndefined (CreationDate) , "IsCanceled" :: NullOrUndefined (IsCanceled) , "JobType" :: NullOrUndefined (JobType) } ) -> Job
-newJob'  customize = (Job <<< customize) { "CreationDate": (NullOrUndefined Nothing), "IsCanceled": (NullOrUndefined Nothing), "JobId": (NullOrUndefined Nothing), "JobType": (NullOrUndefined Nothing) }
+newJob' :: ( { "JobId" :: Maybe (JobId) , "CreationDate" :: Maybe (CreationDate) , "IsCanceled" :: Maybe (IsCanceled) , "JobType" :: Maybe (JobType) } -> {"JobId" :: Maybe (JobId) , "CreationDate" :: Maybe (CreationDate) , "IsCanceled" :: Maybe (IsCanceled) , "JobType" :: Maybe (JobType) } ) -> Job
+newJob'  customize = (Job <<< customize) { "CreationDate": Nothing, "IsCanceled": Nothing, "JobId": Nothing, "JobType": Nothing }
 
 
 
@@ -670,9 +669,9 @@ instance encodeJobsList :: Encode JobsList where encode = genericEncode options
 
 -- | Input structure for the ListJobs operation.
 newtype ListJobsInput = ListJobsInput 
-  { "MaxJobs" :: NullOrUndefined (MaxJobs)
-  , "Marker" :: NullOrUndefined (Marker)
-  , "APIVersion" :: NullOrUndefined (APIVersion)
+  { "MaxJobs" :: Maybe (MaxJobs)
+  , "Marker" :: Maybe (Marker)
+  , "APIVersion" :: Maybe (APIVersion)
   }
 derive instance newtypeListJobsInput :: Newtype ListJobsInput _
 derive instance repGenericListJobsInput :: Generic ListJobsInput _
@@ -682,19 +681,19 @@ instance encodeListJobsInput :: Encode ListJobsInput where encode = genericEncod
 
 -- | Constructs ListJobsInput from required parameters
 newListJobsInput :: ListJobsInput
-newListJobsInput  = ListJobsInput { "APIVersion": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "MaxJobs": (NullOrUndefined Nothing) }
+newListJobsInput  = ListJobsInput { "APIVersion": Nothing, "Marker": Nothing, "MaxJobs": Nothing }
 
 -- | Constructs ListJobsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListJobsInput' :: ( { "MaxJobs" :: NullOrUndefined (MaxJobs) , "Marker" :: NullOrUndefined (Marker) , "APIVersion" :: NullOrUndefined (APIVersion) } -> {"MaxJobs" :: NullOrUndefined (MaxJobs) , "Marker" :: NullOrUndefined (Marker) , "APIVersion" :: NullOrUndefined (APIVersion) } ) -> ListJobsInput
-newListJobsInput'  customize = (ListJobsInput <<< customize) { "APIVersion": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "MaxJobs": (NullOrUndefined Nothing) }
+newListJobsInput' :: ( { "MaxJobs" :: Maybe (MaxJobs) , "Marker" :: Maybe (Marker) , "APIVersion" :: Maybe (APIVersion) } -> {"MaxJobs" :: Maybe (MaxJobs) , "Marker" :: Maybe (Marker) , "APIVersion" :: Maybe (APIVersion) } ) -> ListJobsInput
+newListJobsInput'  customize = (ListJobsInput <<< customize) { "APIVersion": Nothing, "Marker": Nothing, "MaxJobs": Nothing }
 
 
 
 -- | Output structure for the ListJobs operation.
 newtype ListJobsOutput = ListJobsOutput 
-  { "Jobs" :: NullOrUndefined (JobsList)
-  , "IsTruncated" :: NullOrUndefined (IsTruncated)
+  { "Jobs" :: Maybe (JobsList)
+  , "IsTruncated" :: Maybe (IsTruncated)
   }
 derive instance newtypeListJobsOutput :: Newtype ListJobsOutput _
 derive instance repGenericListJobsOutput :: Generic ListJobsOutput _
@@ -704,12 +703,12 @@ instance encodeListJobsOutput :: Encode ListJobsOutput where encode = genericEnc
 
 -- | Constructs ListJobsOutput from required parameters
 newListJobsOutput :: ListJobsOutput
-newListJobsOutput  = ListJobsOutput { "IsTruncated": (NullOrUndefined Nothing), "Jobs": (NullOrUndefined Nothing) }
+newListJobsOutput  = ListJobsOutput { "IsTruncated": Nothing, "Jobs": Nothing }
 
 -- | Constructs ListJobsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListJobsOutput' :: ( { "Jobs" :: NullOrUndefined (JobsList) , "IsTruncated" :: NullOrUndefined (IsTruncated) } -> {"Jobs" :: NullOrUndefined (JobsList) , "IsTruncated" :: NullOrUndefined (IsTruncated) } ) -> ListJobsOutput
-newListJobsOutput'  customize = (ListJobsOutput <<< customize) { "IsTruncated": (NullOrUndefined Nothing), "Jobs": (NullOrUndefined Nothing) }
+newListJobsOutput' :: ( { "Jobs" :: Maybe (JobsList) , "IsTruncated" :: Maybe (IsTruncated) } -> {"Jobs" :: Maybe (JobsList) , "IsTruncated" :: Maybe (IsTruncated) } ) -> ListJobsOutput
+newListJobsOutput'  customize = (ListJobsOutput <<< customize) { "IsTruncated": Nothing, "Jobs": Nothing }
 
 
 
@@ -755,7 +754,7 @@ instance encodeLogKey :: Encode LogKey where encode = genericEncode options
 
 -- | Your manifest is not well-formed.
 newtype MalformedManifestException = MalformedManifestException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeMalformedManifestException :: Newtype MalformedManifestException _
 derive instance repGenericMalformedManifestException :: Generic MalformedManifestException _
@@ -765,12 +764,12 @@ instance encodeMalformedManifestException :: Encode MalformedManifestException w
 
 -- | Constructs MalformedManifestException from required parameters
 newMalformedManifestException :: MalformedManifestException
-newMalformedManifestException  = MalformedManifestException { "message": (NullOrUndefined Nothing) }
+newMalformedManifestException  = MalformedManifestException { "message": Nothing }
 
 -- | Constructs MalformedManifestException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMalformedManifestException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> MalformedManifestException
-newMalformedManifestException'  customize = (MalformedManifestException <<< customize) { "message": (NullOrUndefined Nothing) }
+newMalformedManifestException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> MalformedManifestException
+newMalformedManifestException'  customize = (MalformedManifestException <<< customize) { "message": Nothing }
 
 
 
@@ -816,7 +815,7 @@ instance encodeMaxJobs :: Encode MaxJobs where encode = genericEncode options
 
 -- | One or more required customs parameters was missing from the manifest.
 newtype MissingCustomsException = MissingCustomsException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeMissingCustomsException :: Newtype MissingCustomsException _
 derive instance repGenericMissingCustomsException :: Generic MissingCustomsException _
@@ -826,18 +825,18 @@ instance encodeMissingCustomsException :: Encode MissingCustomsException where e
 
 -- | Constructs MissingCustomsException from required parameters
 newMissingCustomsException :: MissingCustomsException
-newMissingCustomsException  = MissingCustomsException { "message": (NullOrUndefined Nothing) }
+newMissingCustomsException  = MissingCustomsException { "message": Nothing }
 
 -- | Constructs MissingCustomsException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMissingCustomsException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> MissingCustomsException
-newMissingCustomsException'  customize = (MissingCustomsException <<< customize) { "message": (NullOrUndefined Nothing) }
+newMissingCustomsException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> MissingCustomsException
+newMissingCustomsException'  customize = (MissingCustomsException <<< customize) { "message": Nothing }
 
 
 
 -- | One or more required fields were missing from the manifest file. Please correct and resubmit.
 newtype MissingManifestFieldException = MissingManifestFieldException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeMissingManifestFieldException :: Newtype MissingManifestFieldException _
 derive instance repGenericMissingManifestFieldException :: Generic MissingManifestFieldException _
@@ -847,18 +846,18 @@ instance encodeMissingManifestFieldException :: Encode MissingManifestFieldExcep
 
 -- | Constructs MissingManifestFieldException from required parameters
 newMissingManifestFieldException :: MissingManifestFieldException
-newMissingManifestFieldException  = MissingManifestFieldException { "message": (NullOrUndefined Nothing) }
+newMissingManifestFieldException  = MissingManifestFieldException { "message": Nothing }
 
 -- | Constructs MissingManifestFieldException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMissingManifestFieldException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> MissingManifestFieldException
-newMissingManifestFieldException'  customize = (MissingManifestFieldException <<< customize) { "message": (NullOrUndefined Nothing) }
+newMissingManifestFieldException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> MissingManifestFieldException
+newMissingManifestFieldException'  customize = (MissingManifestFieldException <<< customize) { "message": Nothing }
 
 
 
 -- | One or more required parameters was missing from the request.
 newtype MissingParameterException = MissingParameterException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeMissingParameterException :: Newtype MissingParameterException _
 derive instance repGenericMissingParameterException :: Generic MissingParameterException _
@@ -868,18 +867,18 @@ instance encodeMissingParameterException :: Encode MissingParameterException whe
 
 -- | Constructs MissingParameterException from required parameters
 newMissingParameterException :: MissingParameterException
-newMissingParameterException  = MissingParameterException { "message": (NullOrUndefined Nothing) }
+newMissingParameterException  = MissingParameterException { "message": Nothing }
 
 -- | Constructs MissingParameterException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMissingParameterException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> MissingParameterException
-newMissingParameterException'  customize = (MissingParameterException <<< customize) { "message": (NullOrUndefined Nothing) }
+newMissingParameterException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> MissingParameterException
+newMissingParameterException'  customize = (MissingParameterException <<< customize) { "message": Nothing }
 
 
 
 -- | Your manifest file contained buckets from multiple regions. A job is restricted to buckets from one region. Please correct and resubmit.
 newtype MultipleRegionsException = MultipleRegionsException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeMultipleRegionsException :: Newtype MultipleRegionsException _
 derive instance repGenericMultipleRegionsException :: Generic MultipleRegionsException _
@@ -889,18 +888,18 @@ instance encodeMultipleRegionsException :: Encode MultipleRegionsException where
 
 -- | Constructs MultipleRegionsException from required parameters
 newMultipleRegionsException :: MultipleRegionsException
-newMultipleRegionsException  = MultipleRegionsException { "message": (NullOrUndefined Nothing) }
+newMultipleRegionsException  = MultipleRegionsException { "message": Nothing }
 
 -- | Constructs MultipleRegionsException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMultipleRegionsException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> MultipleRegionsException
-newMultipleRegionsException'  customize = (MultipleRegionsException <<< customize) { "message": (NullOrUndefined Nothing) }
+newMultipleRegionsException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> MultipleRegionsException
+newMultipleRegionsException'  customize = (MultipleRegionsException <<< customize) { "message": Nothing }
 
 
 
 -- | The specified bucket does not exist. Create the specified bucket or change the manifest's bucket, exportBucket, or logBucket field to a bucket that the account, as specified by the manifest's Access Key ID, has write permissions to.
 newtype NoSuchBucketException = NoSuchBucketException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNoSuchBucketException :: Newtype NoSuchBucketException _
 derive instance repGenericNoSuchBucketException :: Generic NoSuchBucketException _
@@ -910,12 +909,12 @@ instance encodeNoSuchBucketException :: Encode NoSuchBucketException where encod
 
 -- | Constructs NoSuchBucketException from required parameters
 newNoSuchBucketException :: NoSuchBucketException
-newNoSuchBucketException  = NoSuchBucketException { "message": (NullOrUndefined Nothing) }
+newNoSuchBucketException  = NoSuchBucketException { "message": Nothing }
 
 -- | Constructs NoSuchBucketException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoSuchBucketException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> NoSuchBucketException
-newNoSuchBucketException'  customize = (NoSuchBucketException <<< customize) { "message": (NullOrUndefined Nothing) }
+newNoSuchBucketException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> NoSuchBucketException
+newNoSuchBucketException'  customize = (NoSuchBucketException <<< customize) { "message": Nothing }
 
 
 
@@ -991,7 +990,7 @@ instance encodeURL :: Encode URL where encode = genericEncode options
 
 -- | AWS Import/Export cannot cancel the job
 newtype UnableToCancelJobIdException = UnableToCancelJobIdException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeUnableToCancelJobIdException :: Newtype UnableToCancelJobIdException _
 derive instance repGenericUnableToCancelJobIdException :: Generic UnableToCancelJobIdException _
@@ -1001,18 +1000,18 @@ instance encodeUnableToCancelJobIdException :: Encode UnableToCancelJobIdExcepti
 
 -- | Constructs UnableToCancelJobIdException from required parameters
 newUnableToCancelJobIdException :: UnableToCancelJobIdException
-newUnableToCancelJobIdException  = UnableToCancelJobIdException { "message": (NullOrUndefined Nothing) }
+newUnableToCancelJobIdException  = UnableToCancelJobIdException { "message": Nothing }
 
 -- | Constructs UnableToCancelJobIdException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnableToCancelJobIdException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> UnableToCancelJobIdException
-newUnableToCancelJobIdException'  customize = (UnableToCancelJobIdException <<< customize) { "message": (NullOrUndefined Nothing) }
+newUnableToCancelJobIdException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> UnableToCancelJobIdException
+newUnableToCancelJobIdException'  customize = (UnableToCancelJobIdException <<< customize) { "message": Nothing }
 
 
 
 -- | AWS Import/Export cannot update the job
 newtype UnableToUpdateJobIdException = UnableToUpdateJobIdException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeUnableToUpdateJobIdException :: Newtype UnableToUpdateJobIdException _
 derive instance repGenericUnableToUpdateJobIdException :: Generic UnableToUpdateJobIdException _
@@ -1022,12 +1021,12 @@ instance encodeUnableToUpdateJobIdException :: Encode UnableToUpdateJobIdExcepti
 
 -- | Constructs UnableToUpdateJobIdException from required parameters
 newUnableToUpdateJobIdException :: UnableToUpdateJobIdException
-newUnableToUpdateJobIdException  = UnableToUpdateJobIdException { "message": (NullOrUndefined Nothing) }
+newUnableToUpdateJobIdException  = UnableToUpdateJobIdException { "message": Nothing }
 
 -- | Constructs UnableToUpdateJobIdException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnableToUpdateJobIdException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> UnableToUpdateJobIdException
-newUnableToUpdateJobIdException'  customize = (UnableToUpdateJobIdException <<< customize) { "message": (NullOrUndefined Nothing) }
+newUnableToUpdateJobIdException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> UnableToUpdateJobIdException
+newUnableToUpdateJobIdException'  customize = (UnableToUpdateJobIdException <<< customize) { "message": Nothing }
 
 
 
@@ -1037,7 +1036,7 @@ newtype UpdateJobInput = UpdateJobInput
   , "Manifest" :: (Manifest)
   , "JobType" :: (JobType)
   , "ValidateOnly" :: (ValidateOnly)
-  , "APIVersion" :: NullOrUndefined (APIVersion)
+  , "APIVersion" :: Maybe (APIVersion)
   }
 derive instance newtypeUpdateJobInput :: Newtype UpdateJobInput _
 derive instance repGenericUpdateJobInput :: Generic UpdateJobInput _
@@ -1047,20 +1046,20 @@ instance encodeUpdateJobInput :: Encode UpdateJobInput where encode = genericEnc
 
 -- | Constructs UpdateJobInput from required parameters
 newUpdateJobInput :: JobId -> JobType -> Manifest -> ValidateOnly -> UpdateJobInput
-newUpdateJobInput _JobId _JobType _Manifest _ValidateOnly = UpdateJobInput { "JobId": _JobId, "JobType": _JobType, "Manifest": _Manifest, "ValidateOnly": _ValidateOnly, "APIVersion": (NullOrUndefined Nothing) }
+newUpdateJobInput _JobId _JobType _Manifest _ValidateOnly = UpdateJobInput { "JobId": _JobId, "JobType": _JobType, "Manifest": _Manifest, "ValidateOnly": _ValidateOnly, "APIVersion": Nothing }
 
 -- | Constructs UpdateJobInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateJobInput' :: JobId -> JobType -> Manifest -> ValidateOnly -> ( { "JobId" :: (JobId) , "Manifest" :: (Manifest) , "JobType" :: (JobType) , "ValidateOnly" :: (ValidateOnly) , "APIVersion" :: NullOrUndefined (APIVersion) } -> {"JobId" :: (JobId) , "Manifest" :: (Manifest) , "JobType" :: (JobType) , "ValidateOnly" :: (ValidateOnly) , "APIVersion" :: NullOrUndefined (APIVersion) } ) -> UpdateJobInput
-newUpdateJobInput' _JobId _JobType _Manifest _ValidateOnly customize = (UpdateJobInput <<< customize) { "JobId": _JobId, "JobType": _JobType, "Manifest": _Manifest, "ValidateOnly": _ValidateOnly, "APIVersion": (NullOrUndefined Nothing) }
+newUpdateJobInput' :: JobId -> JobType -> Manifest -> ValidateOnly -> ( { "JobId" :: (JobId) , "Manifest" :: (Manifest) , "JobType" :: (JobType) , "ValidateOnly" :: (ValidateOnly) , "APIVersion" :: Maybe (APIVersion) } -> {"JobId" :: (JobId) , "Manifest" :: (Manifest) , "JobType" :: (JobType) , "ValidateOnly" :: (ValidateOnly) , "APIVersion" :: Maybe (APIVersion) } ) -> UpdateJobInput
+newUpdateJobInput' _JobId _JobType _Manifest _ValidateOnly customize = (UpdateJobInput <<< customize) { "JobId": _JobId, "JobType": _JobType, "Manifest": _Manifest, "ValidateOnly": _ValidateOnly, "APIVersion": Nothing }
 
 
 
 -- | Output structure for the UpateJob operation.
 newtype UpdateJobOutput = UpdateJobOutput 
-  { "Success" :: NullOrUndefined (Success)
-  , "WarningMessage" :: NullOrUndefined (WarningMessage)
-  , "ArtifactList" :: NullOrUndefined (ArtifactList)
+  { "Success" :: Maybe (Success)
+  , "WarningMessage" :: Maybe (WarningMessage)
+  , "ArtifactList" :: Maybe (ArtifactList)
   }
 derive instance newtypeUpdateJobOutput :: Newtype UpdateJobOutput _
 derive instance repGenericUpdateJobOutput :: Generic UpdateJobOutput _
@@ -1070,12 +1069,12 @@ instance encodeUpdateJobOutput :: Encode UpdateJobOutput where encode = genericE
 
 -- | Constructs UpdateJobOutput from required parameters
 newUpdateJobOutput :: UpdateJobOutput
-newUpdateJobOutput  = UpdateJobOutput { "ArtifactList": (NullOrUndefined Nothing), "Success": (NullOrUndefined Nothing), "WarningMessage": (NullOrUndefined Nothing) }
+newUpdateJobOutput  = UpdateJobOutput { "ArtifactList": Nothing, "Success": Nothing, "WarningMessage": Nothing }
 
 -- | Constructs UpdateJobOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateJobOutput' :: ( { "Success" :: NullOrUndefined (Success) , "WarningMessage" :: NullOrUndefined (WarningMessage) , "ArtifactList" :: NullOrUndefined (ArtifactList) } -> {"Success" :: NullOrUndefined (Success) , "WarningMessage" :: NullOrUndefined (WarningMessage) , "ArtifactList" :: NullOrUndefined (ArtifactList) } ) -> UpdateJobOutput
-newUpdateJobOutput'  customize = (UpdateJobOutput <<< customize) { "ArtifactList": (NullOrUndefined Nothing), "Success": (NullOrUndefined Nothing), "WarningMessage": (NullOrUndefined Nothing) }
+newUpdateJobOutput' :: ( { "Success" :: Maybe (Success) , "WarningMessage" :: Maybe (WarningMessage) , "ArtifactList" :: Maybe (ArtifactList) } -> {"Success" :: Maybe (Success) , "WarningMessage" :: Maybe (WarningMessage) , "ArtifactList" :: Maybe (ArtifactList) } ) -> UpdateJobOutput
+newUpdateJobOutput'  customize = (UpdateJobOutput <<< customize) { "ArtifactList": Nothing, "Success": Nothing, "WarningMessage": Nothing }
 
 
 
